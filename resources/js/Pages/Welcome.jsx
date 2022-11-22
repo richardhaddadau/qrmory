@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet";
-import ReactLogo from "../Components/ReactLogo";
 
 const Welcome = () => {
   const [count, setCount] = useState(0);
