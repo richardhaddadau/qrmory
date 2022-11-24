@@ -1,4 +1,4 @@
-import {HashRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "../css/App.css";
 
 import Welcome from "./Pages/Welcome";
@@ -6,17 +6,17 @@ import Welcome from "./Pages/Welcome";
 const App = () => {
   return (
     <Routes>
-        <Route path='/' element={<Welcome />} />
+      <Route path="/" element={<Welcome />} />
     </Routes>
   );
-}
+};
 
 const WrApped = () => {
-    return (
-        <HashRouter>
-            <App />
-        </HashRouter>
-    )
-}
+  return (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+};
 
 export { App, WrApped };
