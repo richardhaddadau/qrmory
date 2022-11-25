@@ -70,7 +70,11 @@ module.exports = {
       fontWeight: {
         sans: "300",
       },
-    },
+      translate: {
+        '1.75': '0.4375rem'
+      }
+    }
+    ,
   },
   plugins: [],
 }

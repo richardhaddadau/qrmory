@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 // QRmory Libraries
 import Standard from "../Layouts/Standard";
@@ -19,6 +19,7 @@ import WebsiteQR from "../Components/Controls/WebsiteQR";
 import YoutubeQR from "../Components/Controls/YoutubeQR";
 
 const Welcome = (props) => {
+  console.log(props);
   // States
   const [qrValue, setQrValue] = useState("Welcome to QRmory!");
   const [textValue, setTextValue] = useState("");
@@ -175,7 +176,7 @@ const Welcome = (props) => {
           </div>
         </header>
 
-        <main className="mx-auto px-6 w-full max-w-7xl">
+        <main className="mx-auto px-2 lg:px-6 w-full max-w-7xl">
           <section className="mx-auto py-24 text-center text-qrmory-purple-800">
             <h2 className="font-header text-4.5xl">Start Creating</h2>
             <h3 className="text-xl uppercase">Go on! Give it a go</h3>
@@ -246,7 +247,9 @@ const Welcome = (props) => {
                   </button>
                 </div>
               </div>
-              <div className="pt-8 pb-10 px-10 flex flex-col justify-between w-qr-preview bg-white rounded-3xl shadow-xl shadow-stone-300 text-center">
+
+              {/* QR Block */}
+              <div className="pt-8 pb-10 px-10 flex flex-col justify-between w-qr-preview max-w-full bg-white rounded-3xl shadow-xl shadow-stone-300 text-center">
                 <div className="">
                   <h4 className="text-sm uppercase text-stone-500">Title</h4>
 

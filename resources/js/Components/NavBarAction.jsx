@@ -6,7 +6,7 @@ const NavBarAction = ({
   return (
     <a
       className={
-        "py-1.5 px-4 hover:bg-qrmory-purple-400 rounded" +
+        "py-1.5 px-2 lg:px-4 hover:bg-qrmory-purple-400 rounded" +
         " uppercase text-sm text-white hover:font-medium" +
         " transition-all duration-300 " +
         className
