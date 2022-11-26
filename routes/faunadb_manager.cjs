@@ -47,6 +47,7 @@ class FaunaDriver {
     });
   }
 
+  // GENERIC ERROR HANDLER
   handleError = (value) => {
     console.error(
       "Error: [%s] %s: %s",
@@ -54,6 +55,8 @@ class FaunaDriver {
       value.message,
       value.errors()[0].description
     );
+
+    return value.statusCode;
   };
 
   GetDocuments = async (collection) => {
@@ -87,6 +90,7 @@ class FaunaDriver {
     return users;
   };
 
+  // LOGIN USERS
   Login = async (userObject) => {
     if (!userObject.email) return undefined;
     if (!userObject.password) return undefined;
@@ -94,7 +98,7 @@ class FaunaDriver {
     const userEmail = userObject.email;
     const userPassword = userObject.password;
 
-    let loggedUser;
+    let loggedInUser;
 
     await this.client
       .query(
@@ -115,7 +119,7 @@ class FaunaDriver {
         )
       )
       .then((res) => {
-        loggedUser = res;
+        loggedInUser = res;
 
         if (res) {
           this.client = new faunadb.Client({
@@ -129,12 +133,13 @@ class FaunaDriver {
       })
       .catch((err) => {
         this.handleError(err);
-        return false;
+        return [401, "Incorrect Credentials"];
       });
 
-    return loggedUser;
+    return loggedInUser;
   };
 
+  // REGISTER USERS
   Register = async (newUserObject) => {
     const newName = newUserObject.name;
     const newEmail = newUserObject.email;
@@ -142,7 +147,7 @@ class FaunaDriver {
 
     let userFound = false;
     let users = await this.GetAccounts();
-    let userId = "";
+    let registeredUser;
 
     for (let user of users["data"]) {
       if (newEmail === user["data"]["email"]) {
@@ -190,12 +195,47 @@ class FaunaDriver {
             })
           )
         )
-        .then((res) => console.log(res));
+        .then((res) => (registeredUser = res));
 
-      return true;
+      return registeredUser;
     } else {
       return false;
     }
+  };
+
+  // GET SAVED QR CODES
+  GetCodesByUser = async (theUser) => {
+    let codes = [];
+
+    await this.client
+      .query(
+        q.Map(
+          q.Paginate(q.Match(q.Index("codes_by_user_id"), theUser)),
+          q.Lambda("X", q.Get(q.Var("X")))
+        )
+      )
+      .then((res) => (codes = res))
+      .catch((err) => {
+        this.handleError(err);
+        return false;
+      });
+
+    return codes;
+  };
+
+  SaveCode = async (theUser) => {
+    // await this.client
+    //   .query(
+    //     q.Map(
+    //       q.Paginate(q.Match(q.Index("codes_by_user_id"), theUser)),
+    //       q.Lambda("X", q.Get(q.Var("X")))
+    //     )
+    //   )
+    //   .then()
+    //   .catch((err) => {
+    //     this.handleError(err);
+    //     return false;
+    //   });
   };
 }
 

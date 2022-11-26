@@ -14,7 +14,7 @@ const YoutubeQR = ({ setText, setChanged }) => {
         <div className="flex flex-col xl:flex-row flex-nowrap">
           <select
             id="protocol-selector"
-            className="mr-2 mt-1 rounded-xl"
+            className="mr-2 mt-1 rounded-xl w-44 text-stone-500"
             onChange={(el) => {
               const youtubeInput =
                 document.getElementById("youtube-input").value;
@@ -37,7 +37,7 @@ const YoutubeQR = ({ setText, setChanged }) => {
             <option value="video">Video</option>
             <option value="username">Username</option>
           </select>
-          <p className="pt-2 text-qrmory-purple-500 font-bold text-lg">
+          <p className="pt-2 text-qrmory-purple-400 font-bold text-lg">
             {youTubeURL}
           </p>
           <input

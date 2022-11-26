@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 const DashNavBar = ({ props }) => {
   return (
     <>
-      <nav className="relative py-4 px-8 top-0 flex flex-row items-center justify-between min-h-16 w-full z-50 bg-qrmory-purple-500">
+      <nav className="relative py-4 px-4 md:px-8 top-0 flex flex-row items-center justify-between min-h-16 w-full z-50 bg-qrmory-purple-500">
         <section className="flex flex-row items-center col-span-3">
           <a href="/">
-            <ShortLogo className="w-12" />
+            <ShortLogo className="w-10" />
           </a>
         </section>
 
@@ -17,7 +17,7 @@ const DashNavBar = ({ props }) => {
           <Link to="/logout" method={"post"} as={"button"}>
             <FaPowerOff
               color={"white"}
-              size={24}
+              size={20}
               className="cursor-pointer hidden xs:flex"
               title={"Sign out"}
             />

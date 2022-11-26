@@ -5,16 +5,24 @@ const router = express.Router();
 
 // Login
 router.post("/login", async (req, res) => {
-  // TODO: Login to Fauna
-  const loggedIn = await fauna.Login(req.body);
-  res.send(loggedIn);
+  try {
+    const loggedIn = await fauna.Login(req.body);
+    res.send(loggedIn);
+  } catch {
+    res.status(401).send("Wrong credentials.");
+  }
+
+  return true;
 });
 
 // Sign Up
 router.post("/register", async (req, res) => {
-  // TODO: Register with Fauna
+  // TODO: Verify and Validate Input
   const registeredUser = await fauna.Register(req.body);
   res.send(registeredUser);
 });
+
+// Save QR Code
+// router.post()
 
 module.exports = router;
