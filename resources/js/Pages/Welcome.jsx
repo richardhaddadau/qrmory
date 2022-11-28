@@ -177,7 +177,7 @@ const Welcome = (props) => {
         </header>
 
         <main className="mx-auto px-2 lg:px-6 w-full max-w-7xl">
-          <section className="mx-auto py-24 text-center text-qrmory-purple-800">
+          <section className="mx-auto mt-24 mb-16 text-center text-qrmory-purple-800">
             <h2 className="font-header text-4.5xl">Start Creating</h2>
             <h3 className="text-xl uppercase">Go on! Give it a go</h3>
 
@@ -356,30 +356,36 @@ const Welcome = (props) => {
           {/*    </div>*/}
           {/*</section>*/}
 
-          <p className="py-16 text-center text-base text-qrmory-purple-800 italic">
-            More coming soon
-          </p>
-
-          {/*<section className="py-16 px-8 bg-stone-200 text-white text-center">*/}
-          {/*    <div className="mx-auto py-20 px-10 flex md:flex-row flex-col justify-evenly items-center w-full max-w-main-card bg-qrmory-purple-500 rounded-3xl">*/}
-          {/*        <div className="">*/}
-          {/*            <p className="font-bold text-4xl">65,000</p>*/}
-          {/*            <p className="text-base uppercase">*/}
-          {/*                Wonderful Visitors*/}
-          {/*            </p>*/}
-          {/*        </div>*/}
-
-          {/*        <div className="">*/}
-          {/*            <p className="font-bold text-4xl">120,000</p>*/}
-          {/*            <p className="text-base uppercase">QR Codes Created</p>*/}
-          {/*        </div>*/}
-
-          {/*        <div className="">*/}
-          {/*            <p className="font-bold text-4xl">500</p>*/}
-          {/*            <p className="text-base uppercase">Awesome Arsenals</p>*/}
-          {/*        </div>*/}
-          {/*    </div>*/}
-          {/*</section>*/}
+          <section className="py-16 text-center text-qrmory-purple-800">
+            <h2 className="font-header text-4.5xl">
+              What is a QR Code anyway?
+            </h2>
+            <h3 className="text-xl uppercase">and how does it work</h3>
+            <article className="mx-auto my-4 w-full max-w-xl">
+              <p className="p-4">
+                If we were to sum up what QR codes are into one sentence, it'd
+                be this: QR Codes are barcodes on steroids, in every way.
+              </p>
+              <p className="p-4">
+                Where barcodes are one-dimensional and capable of generating
+                around 10 trillian unique codes, QR Codes are two-dimensional
+                with near an infinite number of unique codes. Where barcodes are
+                used predominantly for products and retail, QR Codes can be used
+                for anything. Absolutely anything!
+              </p>
+              <p className="p-4"></p>
+              <p className="p-4">
+                Looking for something more technical?
+                <a
+                  href="/what-are-qr-codes"
+                  className="pl-1 hover:px-1 hover:bg-qrmory-purple-400 text-qrmory-purple-400 hover:text-white transition-all duration-300"
+                >
+                  Read here
+                </a>
+                .
+              </p>
+            </article>
+          </section>
         </main>
       </Standard>
     </>
