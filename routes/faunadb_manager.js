@@ -1,4 +1,4 @@
-const faunadb = require("faunadb");
+import faunadb from "faunadb";
 const q = faunadb.query;
 
 let secret = process.env.FAUNADB_SECRET;
@@ -31,6 +31,7 @@ class FaunaDriver {
   constructor(token) {
     this.headers = {
       "content-type": "application/json",
+      "X-Fauna-Source": "qrmory",
     };
 
     this.domain = "db.fauna.com";
@@ -59,14 +60,35 @@ class FaunaDriver {
     return value.statusCode;
   };
 
-  GetDocuments = async (collection) => {
-    let allDocuments;
+  flattenDataKeys = (obj) => {
+    if (Array.isArray(obj)) {
+      return obj.map((e) => this.flattenDataKeys(e));
+    } else if (typeof obj === "object") {
+      // the case where we have just data pointing to an array.
+      if (
+        Object.keys(obj).length === 1 &&
+        obj.data &&
+        Array.isArray(obj.data)
+      ) {
+        return this.flattenDataKeys(obj.data);
+      } else {
+        Object.keys(obj).forEach((k) => {
+          if (k === "data") {
+            const d = obj[k];
+            delete obj.data;
 
-    await this.client
-      .query(q.Paginate(q.Documents(q.Collection(collection))))
-      .then((result) => (allDocuments = result));
-
-    return allDocuments;
+            Object.keys(d).forEach((dataKey) => {
+              obj[dataKey] = this.flattenDataKeys(d[dataKey]);
+            });
+          } else {
+            obj[k] = this.flattenDataKeys(obj[k]);
+          }
+        });
+      }
+      return obj;
+    } else {
+      return obj;
+    }
   };
 
   GetAccounts = async () => {
@@ -88,6 +110,16 @@ class FaunaDriver {
       });
 
     return users;
+  };
+
+  // Get Current User
+  GetCurrent = async () => {
+    let currentUser;
+    await this.client
+      .query(q.CurrentIdentity())
+      .then((res) => (currentUser = res));
+
+    return currentUser;
   };
 
   // LOGIN USERS
@@ -119,7 +151,7 @@ class FaunaDriver {
         )
       )
       .then((res) => {
-        loggedInUser = res;
+        loggedInUser = this.flattenDataKeys(res);
 
         if (res) {
           this.client = new faunadb.Client({
@@ -203,6 +235,19 @@ class FaunaDriver {
     }
   };
 
+  // Log User OUt
+  Logout = async () => {
+    await this.client.query(q.Logout(true)).then((res) => {
+      this.client = new faunadb.Client({
+        headers: this.headers,
+        domain: this.domain,
+        port: this.port,
+        scheme: this.scheme,
+        secret: process.env.FAUNADB_SECRET,
+      });
+    });
+  };
+
   // GET SAVED QR CODES
   GetCodesByUser = async (theUser) => {
     let codes = [];
@@ -240,4 +285,4 @@ class FaunaDriver {
 }
 
 const faunaDriver = new FaunaDriver();
-module.exports = faunaDriver;
+export { faunaDriver, FaunaDriver };
