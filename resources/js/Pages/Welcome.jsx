@@ -360,11 +360,13 @@ const Welcome = (props) => {
             <h3 className="text-xl uppercase font-bold">
               What is a QR Code anyway?
             </h3>
-            <h2 className="font-header text-4.5xl">and how does it work</h2>
-            <article className="mx-auto my-10 w-full max-w-lg">
+            <h2 className="-mt-2 font-header text-4.5xl">
+              and how does it work
+            </h2>
+            <article className="mx-auto my-8 w-full max-w-lg">
               <p className="p-2 font-light">
-                If we were to sum up what QR codes are into one sentence, it'd
-                be this:{" "}
+                If we were to sum up what QR codes are in one sentence, it'd be
+                this:{" "}
                 <span className="font-normal">
                   QR Codes are barcodes on steroids, in every way.
                 </span>
@@ -376,7 +378,10 @@ const Welcome = (props) => {
                 used predominantly for products and retail, QR Codes can be used
                 for anything. Absolutely anything!
               </p>
-              <p className="p-2 font-light"></p>
+              <p className="p-2 font-light">
+                Sharing a website with many people? Offering WIFI access
+                seamlessly?
+              </p>
               <p className="p-2 font-light">
                 Looking for something more technical?
                 <a
