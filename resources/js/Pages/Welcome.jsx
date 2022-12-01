@@ -19,7 +19,6 @@ import WebsiteQR from "../Components/Controls/WebsiteQR";
 import YoutubeQR from "../Components/Controls/YoutubeQR";
 
 const Welcome = (props) => {
-  console.log(props);
   // States
   const [qrValue, setQrValue] = useState("Welcome to QRmory!");
   const [textValue, setTextValue] = useState("");

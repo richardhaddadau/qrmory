@@ -8,7 +8,7 @@ import Guest from "../../Layouts/Guest";
 import useForm from "../../Helpers/useForm.js";
 import Label from "../../Components/Label";
 import InputError from "../../Components/InputError";
-import { faunaDriver } from "../../../../routes/faunadb_manager.js";
+// import { faunaDriver } from "../../../../routes/faunadb_manager.cjs";
 
 const Login = () => {
   // States
