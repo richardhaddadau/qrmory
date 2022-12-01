@@ -19,7 +19,6 @@ import WebsiteQR from "../Components/Controls/WebsiteQR";
 import YoutubeQR from "../Components/Controls/YoutubeQR";
 
 const Welcome = (props) => {
-  console.log(props);
   // States
   const [qrValue, setQrValue] = useState("Welcome to QRmory!");
   const [textValue, setTextValue] = useState("");
@@ -176,8 +175,8 @@ const Welcome = (props) => {
           </div>
         </header>
 
-        <main className="mx-auto px-2 lg:px-6 w-full max-w-7xl">
-          <section className="mx-auto mt-24 mb-16 text-center text-qrmory-purple-800">
+        <main className="mx-auto w-full max-w-7xl">
+          <section className="mx-auto mt-24 mb-16 px-2 lg:px-6 text-center text-qrmory-purple-800">
             <h2 className="font-header text-4.5xl">Start Creating</h2>
             <h3 className="text-xl uppercase">Go on! Give it a go</h3>
 
@@ -356,34 +355,40 @@ const Welcome = (props) => {
           {/*    </div>*/}
           {/*</section>*/}
 
-          <section className="py-16 text-center text-qrmory-purple-800">
+          <section className="py-24 px-6 lg:px-12 bg-stone-200 text-qrmory-purple-800">
             <h3 className="text-xl uppercase font-bold">
               What is a QR Code anyway?
             </h3>
             <h2 className="-mt-2 font-header text-4.5xl">
               and how does it work
             </h2>
-            <article className="mx-auto my-8 w-full max-w-lg">
-              <p className="p-2 font-light">
+            <article className="mt-12 w-full max-w-lg.5">
+              <p className="py-4 font-light text-xl leading-9">
                 If we were to sum up what QR codes are in one sentence, it'd be
                 this:{" "}
                 <span className="font-normal">
                   QR Codes are barcodes on steroids, in every way.
                 </span>
               </p>
-              <p className="p-2 font-light">
+              <p className="py-4 font-light text-xl leading-9">
                 Where barcodes are one-dimensional and capable of generating
-                around 10 trillian unique codes, QR Codes are two-dimensional
+                around 10 trillion unique codes, QR Codes are two-dimensional
                 with near an infinite number of unique codes. Where barcodes are
-                used predominantly for products and retail, QR Codes can be used
-                for anything. Absolutely anything!
+                used predominantly for products and retail,{" "}
+                <strong className="font-normal">
+                  QR Codes can be used for anything!
+                </strong>
               </p>
-              <p className="p-2 font-light">
-                Sharing a website with many people? Offering WIFI access
-                seamlessly?
+              <p className="py-4 font-light text-xl leading-9">
+                Sharing a website with many people? Offering WIFI access safely
+                and seamlessly? Setting up an easier way for diners to order
+                from the menu? Collecting feedback for a product?
               </p>
-              <p className="p-2 font-light">
-                Looking for something more technical?
+              <p className="py-4 font-light text-xl font-normal leading-9">
+                QR Codes are perfect for all of that and more.
+              </p>
+              <p className="pt-12 font-light text-xl">
+                Want to learn more?
                 <a
                   href="/what-are-qr-codes"
                   className="pl-1 hover:px-1 hover:bg-qrmory-purple-400 text-qrmory-purple-400 hover:text-white transition-all duration-300"

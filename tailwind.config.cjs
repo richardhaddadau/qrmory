@@ -2,10 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./resources/js/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./resources/js/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       screens: {
@@ -42,6 +39,7 @@ module.exports = {
       },
       maxWidth: {
         "main-card": "1200px",
+        "lg.5": "34rem",
       },
       backgroundImage: {
         hero: "url('/img/header-bg.webp')",
@@ -71,10 +69,9 @@ module.exports = {
         sans: "300",
       },
       translate: {
-        '1.75': '0.4375rem'
-      }
-    }
-    ,
+        1.75: "0.4375rem",
+      },
+    },
   },
   plugins: [],
-}
+};

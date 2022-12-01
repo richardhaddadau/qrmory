@@ -5,6 +5,7 @@ const MyFooter = () => {
   // Constants
   const quickLinks = {
     // about: ["About", "/about"],
+    features: ["More About QR Codes", "/more-about-qr-codes"],
     // features: ["Features", "/features"],
     // pricing: ["Pricing", "/pricing"],
     // blog: ["Blog", "/blog"],
@@ -25,7 +26,7 @@ const MyFooter = () => {
             <a href="/">
               <FullLogo className="mb-2 w-24 fill-qrmory-purple-800" />
             </a>
-            <p className="mb-8 text-base">
+            <p className="mt-4 mb-8 text-base">
               Build an arsenal of great QR Codes simply and quickly with QRmory.
             </p>
             {/*<h4 className="mb-2 text-xl font-bold">Follow Us</h4>*/}
@@ -54,20 +55,36 @@ const MyFooter = () => {
             {/*</div>*/}
           </article>
 
+          <article className="md:w-1/5 w-full">
+            <h4 className="mb-4 font-bold text-xl">Quick Links</h4>
+            <ul>
+              {Object.keys(quickLinks).map((key, index) => (
+                <li className="my-2" key={key}>
+                  <a
+                    className="py-0.5 px-1 text-base text-qrmory-purple-400 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-500"
+                    href={quickLinks[key][1]}
+                  >
+                    {quickLinks[key][0]}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </article>
+
           {/*<article className="md:w-1/5 w-full">*/}
-          {/*    <h4 className="mb-4 font-bold text-xl">Quick Links</h4>*/}
-          {/*    <ul>*/}
-          {/*        {Object.keys(quickLinks).map((key, index) => (*/}
-          {/*            <li className="my-2" key={key}>*/}
-          {/*                <a*/}
-          {/*                    className="text-base hover:font-bold transition-all duration-300"*/}
-          {/*                    href={quickLinks[key][1]}*/}
-          {/*                >*/}
-          {/*                    {quickLinks[key][0]}*/}
-          {/*                </a>*/}
-          {/*            </li>*/}
-          {/*        ))}*/}
-          {/*    </ul>*/}
+          {/*  <h4 className="mb-4 font-bold text-xl">Important Information</h4>*/}
+          {/*  <ul>*/}
+          {/*    {Object.keys(importantLinks).map((key, index) => (*/}
+          {/*      <li className="my-2" key={key}>*/}
+          {/*        <a*/}
+          {/*          className="py-0.5 px-1 text-base text-qrmory-purple-400 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-500"*/}
+          {/*          href={importantLinks[key][1]}*/}
+          {/*        >*/}
+          {/*          {importantLinks[key][0]}*/}
+          {/*        </a>*/}
+          {/*      </li>*/}
+          {/*    ))}*/}
+          {/*  </ul>*/}
           {/*</article>*/}
 
           <article className="md:w-1/5 w-full">
@@ -76,7 +93,7 @@ const MyFooter = () => {
               {Object.keys(importantLinks).map((key, index) => (
                 <li className="my-2" key={key}>
                   <a
-                    className="text-base hover:font-bold transition-all duration-300"
+                    className="py-0.5 px-1 text-base text-qrmory-purple-400 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-500"
                     href={importantLinks[key][1]}
                   >
                     {importantLinks[key][0]}
