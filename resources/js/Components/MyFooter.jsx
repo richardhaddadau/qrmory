@@ -11,8 +11,11 @@ const MyFooter = () => {
     // blog: ["Blog", "/blog"],
   };
 
+  const supportLinks = {
+    helpCenter: ["Help Center", "/help"],
+  };
+
   const importantLinks = {
-    support: ["Contact Support", "/contact"],
     privacy: ["Privacy Policy", "/privacy-policy"],
     terms: ["Terms + Conditions", "/terms-and-conditions"],
     cookie: ["Cookie Policy", "/cookie-policy"],
@@ -88,6 +91,22 @@ const MyFooter = () => {
           {/*</article>*/}
 
           <article className="md:w-1/5 w-full">
+            {/* Support */}
+            <h4 className="mb-4 font-bold text-xl">Support</h4>
+            <ul className="mb-10">
+              {Object.keys(supportLinks).map((key, index) => (
+                <li className="my-2" key={key}>
+                  <a
+                    className="py-0.5 px-1 text-base text-qrmory-purple-400 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-500"
+                    href={supportLinks[key][1]}
+                  >
+                    {supportLinks[key][0]}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            {/* Important Links */}
             <h4 className="mb-4 font-bold text-xl">Important Information</h4>
             <ul>
               {Object.keys(importantLinks).map((key, index) => (

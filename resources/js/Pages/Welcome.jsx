@@ -168,7 +168,15 @@ const Welcome = (props) => {
               >
                 Start Creating
               </button>
-              <button className="py-3 px-6 border border-white hover:border-qrmory-purple-400 hover:bg-qrmory-purple-400 rounded text-white font-bold hover:translate-x-1 hover:-translate-y-1 transition-all duration-300">
+              <button
+                className="py-3 px-6 border border-white hover:border-qrmory-purple-400 hover:bg-qrmory-purple-400 rounded text-white font-bold hover:translate-x-1 hover:-translate-y-1 transition-all duration-300"
+                onClick={() => {
+                  window.scrollTo({
+                    top: document.getElementById("what-is-a-qr-code").offsetTop,
+                    behavior: "smooth",
+                  });
+                }}
+              >
                 Learn More
               </button>
             </div>
@@ -355,7 +363,10 @@ const Welcome = (props) => {
           {/*    </div>*/}
           {/*</section>*/}
 
-          <section className="py-24 px-6 lg:px-12 bg-stone-200 text-qrmory-purple-800">
+          <section
+            id="what-is-a-qr-code"
+            className="mx-8 py-24 px-6 lg:px-12 bg-stone-200 rounded text-qrmory-purple-800"
+          >
             <h3 className="text-xl uppercase font-bold">
               What is a QR Code anyway?
             </h3>

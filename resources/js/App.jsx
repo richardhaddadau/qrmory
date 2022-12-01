@@ -9,6 +9,7 @@ import Dashboard from "./Pages/Dashboard.jsx";
 import TermsAndConditions from "./Pages/TermsAndConditions.jsx";
 import PrivacyPolicy from "./Pages/PrivacyPolicy.jsx";
 import CookiePolicy from "./Pages/CookiePolicy.jsx";
+import HelpCenter from "./Pages/Support/HelpCenter.jsx";
 
 const App = () => {
   return (
@@ -22,6 +23,9 @@ const App = () => {
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/cookie-policy" element={<CookiePolicy />} />
+
+      {/* Support */}
+      <Route path="/help" element={<HelpCenter />} />
 
       {/* Standard */}
       <Route path="/" element={<Welcome />} />
