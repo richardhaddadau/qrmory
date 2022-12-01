@@ -53,7 +53,7 @@ export default function Dashboard(props) {
       {/*{loggedInUser ? (*/}
       <>
         <Helmet>
-          <title>Dashboard</title>
+          <title>Dashboard - QRmory</title>
           {/*TODO: Fill out description*/}
           <meta name="description" content="" />
         </Helmet>

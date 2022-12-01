@@ -91,15 +91,18 @@ const NavBar = ({
             <section className="pb-2 lg:pb-0 pl-2 lg:pl-0 mb-4 lg:mb-0 lg:grow flex flex-row items-center lg:col-span-6 border-b-1 lg:border-0">
               <Navigation />
             </section>
+
             <section className="flex flex-row items-center justify-end col-span-12 lg:col-span-3">
               <section className="flex flex-col lg:flex-row lg:items-center justify-end gap-2 w-full lg:w-fit">
-                <NavBarAction
-                  value="Create a Free Account"
-                  destination="./register"
-                  className="bg-white lg:bg-qrmory-purple-300 hover:bg-white lg:hover:bg-qrmory-purple-400 text-qrmory-purple-900 lg:text-white font-medium border-qrmory-purple-300 shadow-lg shadow-qrmory-purple-900 lg:hover:translate-x-1 lg:hover:-translate-y-1"
-                />
-
-                <NavBarAction value="Sign In" destination="/login" />
+                <p className="text-qrmory-purple-300 italic">
+                  Free accounts coming soon
+                </p>
+                {/*<NavBarAction*/}
+                {/*  value="Create a Free Account"*/}
+                {/*  destination="./register"*/}
+                {/*  className="bg-white lg:bg-qrmory-purple-300 hover:bg-white lg:hover:bg-qrmory-purple-400 text-qrmory-purple-900 lg:text-white font-medium border-qrmory-purple-300 shadow-lg shadow-qrmory-purple-900 lg:hover:translate-x-1 lg:hover:-translate-y-1"*/}
+                {/*/>*/}
+                {/*<NavBarAction value="Sign In" destination="/login" />*/}
               </section>
             </section>
 

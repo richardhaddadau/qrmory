@@ -6,14 +6,25 @@ import Welcome from "./Pages/Welcome";
 import Register from "./Pages/Auth/Register.jsx";
 import Login from "./Pages/Auth/Login.jsx";
 import Dashboard from "./Pages/Dashboard.jsx";
+import TermsAndConditions from "./Pages/TermsAndConditions.jsx";
+import PrivacyPolicy from "./Pages/PrivacyPolicy.jsx";
+import CookiePolicy from "./Pages/CookiePolicy.jsx";
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Welcome />} />
+      {/* Auth */}
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<Dashboard />} />
+
+      {/* Policies */}
+      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/cookie-policy" element={<CookiePolicy />} />
+
+      {/* Standard */}
+      <Route path="/" element={<Welcome />} />
     </Routes>
   );
 };
