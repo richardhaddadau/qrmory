@@ -148,7 +148,7 @@ const Welcome = (props) => {
           logoColour="white"
         />
 
-        <header className="main-hero flex flex-col justify-center items-center h-hero bg-qrmory-purple-800 text-white">
+        <header className="main-hero flex flex-col justify-center items-center h-screen max-h-hero min-h-hero bg-qrmory-purple-800 text-white">
           <div className="px-6 w-full max-w-7xl text-center">
             <h1 className="font-header text-5xl hero-heading">
               Generate an <span>arsenal</span> of QR Codes
