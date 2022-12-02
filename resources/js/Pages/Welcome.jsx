@@ -17,6 +17,7 @@ import TextQR from "../Components/Controls/TextQR";
 import TwitterQR from "../Components/Controls/TwitterQR";
 import WebsiteQR from "../Components/Controls/WebsiteQR";
 import YoutubeQR from "../Components/Controls/YoutubeQR";
+import { SessionContext } from "../Context/session.jsx";
 
 const Welcome = (props) => {
   // States

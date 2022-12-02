@@ -1,9 +1,14 @@
-import Navigation from "./Navigation";
-import Logo from "./Logo";
-import NavBarAction from "./NavBarAction";
-import ShortLogo from "./ShortLogo";
 import { useState } from "react";
+import { useContext } from "react";
+
 import { Helmet } from "react-helmet-async";
+
+import Logo from "./Logo";
+import ShortLogo from "./ShortLogo";
+import Navigation from "./Navigation";
+import NavBarAction from "./NavBarAction";
+
+import { SessionContext } from "../Context/session.jsx";
 
 const NavBar = ({
   props,
@@ -12,6 +17,8 @@ const NavBar = ({
   logoColour = "white",
   fullLogo = true,
 }) => {
+  const session = useContext(SessionContext);
+
   // States
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -32,7 +39,8 @@ const NavBar = ({
       </Helmet>
 
       <nav className={navClasses}>
-        <div className="grid grid-cols-12 col-span-12 w-full max-w-7xl">
+        <div className="grid grid-cols-12 w-full max-w-7xl">
+          {/* Logo */}
           <section className="flex flex-row items-center col-span-3">
             <a href="/">
               {fullLogo ? (
@@ -43,6 +51,7 @@ const NavBar = ({
             </a>
           </section>
 
+          {/* Menu Button - Mobile */}
           <section className="lg:hidden flex justify-end col-span-9 z-50">
             <div
               className="cursor-pointer relative py-3 px-2 flex flex-col justify-between w-10 h-10 bg-white rounded"
@@ -72,7 +81,7 @@ const NavBar = ({
           {/* Menu Underlay */}
           <div
             className={
-              "absolute block top-0 h-screen w-full bg-black opacity-50 transition-all duration-300 " +
+              "absolute block lg:hidden top-0 h-screen w-full bg-black opacity-50 transition-all duration-300 " +
               (menuOpen ? "left-0" : "-left-full")
             }
             onClick={handleMenu}
@@ -81,25 +90,30 @@ const NavBar = ({
           {/* Main Menu */}
           <section
             className={
-              "absolute p-4 pt-16 sm:p-6 lg:p-0 lg:relative flex flex-col lg:flex-row top-0 left-0 h-screen lg:h-auto" +
-              " w-screen" +
-              " lg:w-auto max-w-xs lg:max-w-none lg:col-span-9 bg-qrmory-purple-900 lg:bg-transparent rounded-tr-xl" +
-              " lg:rounded-none transition-all duration-500 " +
+              "absolute p-4 pt-16 sm:p-6 lg:p-0 lg:relative lg:grid lg:grid-cols-9 lg:col-span-9 top-0 left-0" +
+              " h-screen lg:h-auto w-screen lg:w-auto max-w-xs lg:max-w-none bg-qrmory-purple-900 lg:bg-transparent rounded-tr-xl lg:rounded-none transition-all duration-500 " +
               (menuOpen ? "left-0" : "-left-full lg:left-0")
             }
           >
-            <section className="pb-2 lg:pb-0 pl-2 lg:pl-0 mb-4 lg:mb-0 lg:grow flex flex-row items-center lg:col-span-6 border-b-1 lg:border-0">
+            <section className="pb-4 lg:pb-0 pl-0 mb-4 lg:mb-0 lg:grow flex flex-col lg:flex-row items-center lg:col-span-6 border-b-1 lg:border-0">
               <Navigation />
             </section>
+
             <section className="flex flex-row items-center justify-end col-span-12 lg:col-span-3">
               <section className="flex flex-col lg:flex-row lg:items-center justify-end gap-2 w-full lg:w-fit">
-                <NavBarAction
-                  value="Create a Free Account"
-                  destination="./register"
-                  className="bg-white lg:bg-qrmory-purple-300 hover:bg-white lg:hover:bg-qrmory-purple-400 text-qrmory-purple-900 lg:text-white font-medium border-qrmory-purple-300 shadow-lg shadow-qrmory-purple-900 lg:hover:translate-x-1 lg:hover:-translate-y-1"
-                />
+                {session.user ? (
+                  <NavBarAction value="Dashboard" destination="/dashboard" />
+                ) : (
+                  <>
+                    <NavBarAction
+                      value="Create Free Account"
+                      destination="./register"
+                      className="bg-white lg:bg-qrmory-purple-300 hover:bg-white lg:hover:bg-qrmory-purple-400 text-qrmory-purple-900 lg:text-white hover:text-white font-medium border-qrmory-purple-300 shadow-lg shadow-qrmory-purple-900 lg:hover:translate-x-1 lg:hover:-translate-y-1"
+                    />
 
-                <NavBarAction value="Sign In" destination="/login" />
+                    <NavBarAction value="Login" destination="/login" />
+                  </>
+                )}
               </section>
             </section>
 
