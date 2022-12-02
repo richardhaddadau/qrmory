@@ -169,7 +169,16 @@ const Welcome = (props) => {
               >
                 Start Creating
               </button>
-              <button className="py-3 px-6 border border-white hover:border-qrmory-purple-400 hover:bg-qrmory-purple-400 rounded text-white font-bold hover:translate-x-1 hover:-translate-y-1 transition-all duration-300">
+
+              <button
+                className="py-3 px-6 border border-white hover:border-qrmory-purple-400 hover:bg-qrmory-purple-400 rounded text-white font-bold hover:translate-x-1 hover:-translate-y-1 transition-all duration-300"
+                onClick={() => {
+                  window.scrollTo({
+                    top: document.getElementById("what-is-a-qr-code").offsetTop,
+                    behavior: "smooth",
+                  });
+                }}
+              >
                 Learn More
               </button>
             </div>
@@ -177,7 +186,7 @@ const Welcome = (props) => {
         </header>
 
         <main className="mx-auto px-2 lg:px-6 w-full max-w-7xl">
-          <section className="mx-auto py-24 text-center text-qrmory-purple-800">
+          <section className="mx-auto mt-24 mb-16 px-2 lg:px-6 text-center text-qrmory-purple-800">
             <h2 className="font-header text-4.5xl">Start Creating</h2>
             <h3 className="text-xl uppercase">Go on! Give it a go</h3>
 
@@ -356,30 +365,54 @@ const Welcome = (props) => {
           {/*    </div>*/}
           {/*</section>*/}
 
-          <p className="py-16 text-center text-base text-qrmory-purple-800 italic">
-            More coming soon
-          </p>
+          <section
+            id="what-is-a-qr-code"
+            className="mx-8 py-24 px-6 lg:px-12 bg-stone-200 rounded text-qrmory-purple-800"
+          >
+            <h3 className="text-xl uppercase font-bold">
+              What is a QR Code anyway?
+            </h3>
+            <h2 className="-mt-2 font-header text-4.5xl">
+              and how does it work
+            </h2>
 
-          {/*<section className="py-16 px-8 bg-stone-200 text-white text-center">*/}
-          {/*    <div className="mx-auto py-20 px-10 flex md:flex-row flex-col justify-evenly items-center w-full max-w-main-card bg-qrmory-purple-500 rounded-3xl">*/}
-          {/*        <div className="">*/}
-          {/*            <p className="font-bold text-4xl">65,000</p>*/}
-          {/*            <p className="text-base uppercase">*/}
-          {/*                Wonderful Visitors*/}
-          {/*            </p>*/}
-          {/*        </div>*/}
-
-          {/*        <div className="">*/}
-          {/*            <p className="font-bold text-4xl">120,000</p>*/}
-          {/*            <p className="text-base uppercase">QR Codes Created</p>*/}
-          {/*        </div>*/}
-
-          {/*        <div className="">*/}
-          {/*            <p className="font-bold text-4xl">500</p>*/}
-          {/*            <p className="text-base uppercase">Awesome Arsenals</p>*/}
-          {/*        </div>*/}
-          {/*    </div>*/}
-          {/*</section>*/}
+            <article className="mt-12 w-full max-w-lg.5">
+              <p className="py-4 font-light text-xl leading-9">
+                If we were to sum up what QR codes are in one sentence, it'd be
+                this:{" "}
+                <span className="font-normal">
+                  QR Codes are barcodes on steroids, in every way.
+                </span>
+              </p>
+              <p className="py-4 font-light text-xl leading-9">
+                Where barcodes are one-dimensional and capable of generating
+                around 10 trillion unique codes, QR Codes are two-dimensional
+                with near an infinite number of unique codes. Where barcodes are
+                used predominantly for products and retail,{" "}
+                <strong className="font-normal">
+                  QR Codes can be used for anything!
+                </strong>
+              </p>
+              <p className="py-4 font-light text-xl leading-9">
+                Sharing a website with many people? Offering WIFI access safely
+                and seamlessly? Setting up an easier way for diners to order
+                from the menu? Collecting feedback for a product?
+              </p>
+              <p className="py-4 font-light text-xl font-normal leading-9">
+                QR Codes are perfect for all of that and more.
+              </p>
+              <p className="pt-12 font-light text-xl">
+                Want to learn more?
+                <a
+                  href="/what-are-qr-codes"
+                  className="pl-1 hover:px-1 hover:bg-qrmory-purple-400 text-qrmory-purple-400 hover:text-white transition-all duration-300"
+                >
+                  Read here
+                </a>
+                .
+              </p>
+            </article>
+          </section>
         </main>
       </Standard>
     </>
