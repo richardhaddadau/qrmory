@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 
 import { Helmet } from "react-helmet-async";
 
@@ -11,14 +10,13 @@ import NavBarAction from "./NavBarAction";
 import { SessionContext } from "../Context/session.jsx";
 
 const NavBar = ({
-  props,
   className = "",
   absolute = true,
   logoColour = "white",
   fullLogo = true,
 }) => {
   const session = useContext(SessionContext);
-
+  console.log(session.user);
   // States
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -102,7 +100,10 @@ const NavBar = ({
             <section className="flex flex-row items-center justify-end col-span-12 lg:col-span-3">
               <section className="flex flex-col lg:flex-row lg:items-center justify-end gap-2 w-full lg:w-fit">
                 {session.user ? (
-                  <NavBarAction value="Dashboard" destination="/dashboard" />
+                  <>
+                    <NavBarAction value="Dashboard" destination="/dashboard" />
+                    <NavBarAction value="Logout" destination="/logout" />
+                  </>
                 ) : (
                   <>
                     <NavBarAction

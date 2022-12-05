@@ -19,6 +19,7 @@ import WebsiteQR from "../Components/Controls/WebsiteQR";
 import YoutubeQR from "../Components/Controls/YoutubeQR";
 import { SessionContext } from "../Context/session.jsx";
 import { RegisterUser } from "../../../app/Http/Controllers/Fauna/auth.js";
+import { useCookies } from "react-cookie";
 
 const Welcome = (props) => {
   // States
@@ -104,7 +105,18 @@ const Welcome = (props) => {
 
   const loginWithData = () => {};
 
+  const [cookie, setCookie] = useCookies(["auth"]);
+
   useEffect(() => {
+    if (!cookie.auth) {
+      setCookie(
+        "auth",
+        Math.floor(Math.random() * (999999 - 100000 + 1) + 100000),
+        {
+          path: "/",
+        }
+      );
+    }
     RegisterUser({
       name: "Automated",
       email: "test@auto.com",

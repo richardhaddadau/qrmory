@@ -10,11 +10,14 @@ import Login from "./Pages/Auth/Login.jsx";
 import Dashboard from "./Pages/Dashboard.jsx";
 
 import { SessionContext } from "./Context/session.jsx";
+import { CookiesProvider } from "react-cookie";
+import Logout from "./Pages/Auth/Logout.jsx";
 
 const App = () => {
   return (
-    <SessionContext.Provider value={{ user: {}, account: {}, token: {} }}>
+    <SessionContext.Provider value={{ user: {}, account: null, token: null }}>
       <Routes>
+        <Route path="/logout" element={<Logout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         {/*{user ? <Route path="/dashboard" element={<Dashboard />} /> : null}*/}
@@ -29,7 +32,9 @@ const Wrapped = () => {
   return (
     <BrowserRouter>
       <HelmetProvider>
-        <App />
+        <CookiesProvider>
+          <App />
+        </CookiesProvider>
       </HelmetProvider>
     </BrowserRouter>
   );
