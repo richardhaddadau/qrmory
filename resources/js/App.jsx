@@ -13,11 +13,12 @@ import { SessionContext } from "./Context/session.jsx";
 
 const App = () => {
   return (
-    <SessionContext.Provider value={{ user: null, account: null, token: null }}>
+    <SessionContext.Provider value={{ user: {}, account: {}, token: {} }}>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         {/*{user ? <Route path="/dashboard" element={<Dashboard />} /> : null}*/}
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/" element={<Welcome />} />
       </Routes>
     </SessionContext.Provider>
