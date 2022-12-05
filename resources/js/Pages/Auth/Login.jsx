@@ -91,16 +91,7 @@ const Login = () => {
           ) : null}
         </div>
 
-        <div className="mt-6 flex items-center justify-center">
-          <Link
-            to="/register"
-            className="px-1.5 py-1 text-sm text-stone-400 hover:text-white hover:bg-qrmory-purple-400 rounded hover:translate-x-1 hover:-translate-y-1 transition-all duration-300"
-          >
-            Not a member yet?
-          </Link>
-        </div>
-
-        <div className="flex items-center justify-end mt-4">
+        <div className="mt-10 flex items-center justify-end">
           <button
             className={
               "ml-4 px-4 py-2 rounded border border-qrmory-purple-800 hover:border-qrmory-purple-400" +
@@ -141,6 +132,15 @@ const Login = () => {
               "Sign in"
             )}
           </button>
+        </div>
+
+        <div className="mt-4 flex items-center justify-center">
+          <Link
+            to="/register"
+            className="px-1.5 py-1 text-sm text-stone-400 hover:text-white hover:bg-qrmory-purple-400 rounded hover:translate-x-1 hover:-translate-y-1 transition-all duration-300"
+          >
+            Not a member yet?
+          </Link>
         </div>
       </form>
     </Guest>

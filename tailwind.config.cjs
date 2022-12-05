@@ -32,9 +32,11 @@ module.exports = {
         "qr-preview": "350px",
       },
       minHeight: {
+        hero: "450px",
         "qr-card": "660px",
       },
       maxHeight: {
+        hero: "850px",
         "selector-window": "512px",
       },
       maxWidth: {
