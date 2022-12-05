@@ -28,7 +28,11 @@ const {
 } = q;
 
 const RegisterUser = (userObject) => {
-  const RegisterFQL = Let(
+  console.log(userObject);
+
+  // TODO: Rate Limiting
+  // const RegisterFQL =
+  Let(
     {
       user: CreateUser(userObject.name),
       account: Select(
@@ -50,10 +54,13 @@ const RegisterUser = (userObject) => {
   );
 
   // TODO: Rate Limiting
+  // console.log(RegisterFQL);
 };
 
 const LoginByEmail = (email, password) => {
-  const loginFQL = If(
+  // TODO: Rate Limiting
+  // const loginFQL =
+  If(
     Identify(Match(Index("accounts_by_email"), email), password),
     Do(
       Let(

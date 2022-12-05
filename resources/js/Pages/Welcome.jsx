@@ -18,6 +18,7 @@ import TwitterQR from "../Components/Controls/TwitterQR";
 import WebsiteQR from "../Components/Controls/WebsiteQR";
 import YoutubeQR from "../Components/Controls/YoutubeQR";
 import { SessionContext } from "../Context/session.jsx";
+import { RegisterUser } from "../../../app/Http/Controllers/Fauna/auth.js";
 
 const Welcome = (props) => {
   // States
@@ -104,6 +105,12 @@ const Welcome = (props) => {
   const loginWithData = () => {};
 
   useEffect(() => {
+    RegisterUser({
+      name: "Automated",
+      email: "test@auto.com",
+      password: "password",
+    });
+
     const qrSelectors = document.querySelectorAll(".qr-selector");
 
     for (const item of qrSelectors) {

@@ -5,7 +5,11 @@ const useForm = () => {
 
   const handleChange = (e) => {
     e.persist();
-    setState((state) => ({ ...state, [e.target.name]: e.target.value }));
+    setState((state) => ({
+      ...state,
+      [e.target.name]:
+        e.target.type === "checkbox" ? e.target.checked : e.target.value,
+    }));
   };
 
   return [state, handleChange];
