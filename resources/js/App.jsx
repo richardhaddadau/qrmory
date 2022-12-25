@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import ReactGA from "react-ga";
+
 import "../css/App.css";
 
 import Welcome from "./Pages/Welcome";
@@ -10,6 +12,9 @@ import TermsAndConditions from "./Pages/TermsAndConditions.jsx";
 import PrivacyPolicy from "./Pages/PrivacyPolicy.jsx";
 import CookiePolicy from "./Pages/CookiePolicy.jsx";
 import HelpCenter from "./Pages/Support/HelpCenter.jsx";
+import { useEffect } from "react";
+
+ReactGA.initialize("G-SG52HNQMDP");
 
 const App = () => {
   return (
@@ -34,6 +39,10 @@ const App = () => {
 };
 
 const WrApped = () => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
+
   return (
     <BrowserRouter>
       <HelmetProvider>

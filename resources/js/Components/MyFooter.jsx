@@ -59,19 +59,19 @@ const MyFooter = () => {
           </article>
 
           <article className="md:w-1/5 w-full">
-            <h4 className="mb-4 font-bold text-xl">Quick Links</h4>
-            <ul>
-              {Object.keys(quickLinks).map((key, index) => (
-                <li className="my-2" key={key}>
-                  <a
-                    className="py-0.5 px-1 text-base text-qrmory-purple-400 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-500"
-                    href={quickLinks[key][1]}
-                  >
-                    {quickLinks[key][0]}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {/*<h4 className="mb-4 font-bold text-xl">Quick Links</h4>*/}
+            {/*<ul>*/}
+            {/*  {Object.keys(quickLinks).map((key, index) => (*/}
+            {/*    <li className="my-2" key={key}>*/}
+            {/*      <a*/}
+            {/*        className="py-0.5 px-1 text-base text-qrmory-purple-400 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-500"*/}
+            {/*        href={quickLinks[key][1]}*/}
+            {/*      >*/}
+            {/*        {quickLinks[key][0]}*/}
+            {/*      </a>*/}
+            {/*    </li>*/}
+            {/*  ))}*/}
+            {/*</ul>*/}
           </article>
 
           {/*<article className="md:w-1/5 w-full">*/}
@@ -92,19 +92,19 @@ const MyFooter = () => {
 
           <article className="md:w-1/5 w-full">
             {/* Support */}
-            <h4 className="mb-4 font-bold text-xl">Support</h4>
-            <ul className="mb-10">
-              {Object.keys(supportLinks).map((key, index) => (
-                <li className="my-2" key={key}>
-                  <a
-                    className="py-0.5 px-1 text-base text-qrmory-purple-400 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-500"
-                    href={supportLinks[key][1]}
-                  >
-                    {supportLinks[key][0]}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {/*<h4 className="mb-4 font-bold text-xl">Support</h4>*/}
+            {/*<ul className="mb-10">*/}
+            {/*  {Object.keys(supportLinks).map((key, index) => (*/}
+            {/*    <li className="my-2" key={key}>*/}
+            {/*      <a*/}
+            {/*        className="py-0.5 px-1 text-base text-qrmory-purple-400 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-500"*/}
+            {/*        href={supportLinks[key][1]}*/}
+            {/*      >*/}
+            {/*        {supportLinks[key][0]}*/}
+            {/*      </a>*/}
+            {/*    </li>*/}
+            {/*  ))}*/}
+            {/*</ul>*/}
 
             {/* Important Links */}
             <h4 className="mb-4 font-bold text-xl">Important Information</h4>

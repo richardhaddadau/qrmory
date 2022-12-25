@@ -18,7 +18,7 @@ import TwitterQR from "../Components/Controls/TwitterQR";
 import WebsiteQR from "../Components/Controls/WebsiteQR";
 import YoutubeQR from "../Components/Controls/YoutubeQR";
 
-const Welcome = (props) => {
+const Welcome = () => {
   // States
   const [qrValue, setQrValue] = useState("Welcome to QRmory!");
   const [textValue, setTextValue] = useState("");
@@ -141,11 +141,7 @@ const Welcome = (props) => {
       </Helmet>
 
       <Standard>
-        <NavBar
-          className={"text-qrmory-purple-500"}
-          props={props}
-          logoColour="white"
-        />
+        <NavBar className={"text-qrmory-purple-500"} logoColour="white" />
 
         <header className="main-hero flex flex-col justify-center items-center h-hero bg-qrmory-purple-800 text-white">
           <div className="px-6 w-full max-w-7xl text-center">
@@ -398,16 +394,16 @@ const Welcome = (props) => {
               <p className="py-4 font-light text-xl font-normal leading-9">
                 QR Codes are perfect for all of that and more.
               </p>
-              <p className="pt-12 font-light text-xl">
-                Want to learn more?
-                <a
-                  href="/what-are-qr-codes"
-                  className="pl-1 hover:px-1 hover:bg-qrmory-purple-400 text-qrmory-purple-400 hover:text-white transition-all duration-300"
-                >
-                  Read here
-                </a>
-                .
-              </p>
+              {/*<p className="pt-12 font-light text-xl">*/}
+              {/*  Want to learn more?*/}
+              {/*  <a*/}
+              {/*    href="/what-are-qr-codes"*/}
+              {/*    className="pl-1 hover:px-1 hover:bg-qrmory-purple-400 text-qrmory-purple-400 hover:text-white transition-all duration-300"*/}
+              {/*  >*/}
+              {/*    Read here*/}
+              {/*  </a>*/}
+              {/*  .*/}
+              {/*</p>*/}
             </article>
           </section>
         </main>
