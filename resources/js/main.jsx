@@ -5,7 +5,6 @@ import "../css/index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/*<WrApped />*/}
-    <div>hello</div>
+    <WrApped />
   </React.StrictMode>
 );
