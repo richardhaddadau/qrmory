@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const WebsiteQR = ({ setText, setChanged }) => {
+const WebsiteQR = ({ setText, setChanged, setNewQR }) => {
   const [protocol, setProtocol] = useState("https");
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
@@ -94,6 +94,7 @@ const WebsiteQR = ({ setText, setChanged }) => {
               }
 
               setText(protocolSelector.value + "://" + useSite);
+              setNewQR(false);
               setChanged(true);
             }}
           />

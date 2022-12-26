@@ -1,4 +1,4 @@
-const TextQR = ({ setText, setChanged }) => {
+const TextQR = ({ setText, setChanged, setNewQR }) => {
   return (
     <>
       <label className="control-label">
@@ -8,6 +8,7 @@ const TextQR = ({ setText, setChanged }) => {
           className="control-input"
           onChange={(el) => {
             setText(el.target.value);
+            setNewQR(false);
             setChanged(true);
           }}
         />

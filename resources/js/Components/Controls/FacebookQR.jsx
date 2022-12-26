@@ -1,4 +1,4 @@
-const FacebookQR = ({ setText, setChanged }) => {
+const FacebookQR = ({ setText, setChanged, setNewQR }) => {
   return (
     <>
       <label className="control-label">
@@ -12,6 +12,7 @@ const FacebookQR = ({ setText, setChanged }) => {
             className="control-input"
             onChange={(el) => {
               setText(`https://facebook.com/${el.target.value}`);
+              setNewQR(false);
               setChanged(true);
             }}
           />

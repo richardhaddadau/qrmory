@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const YoutubeQR = ({ setText, setChanged }) => {
+const YoutubeQR = ({ setText, setChanged, setNewQR }) => {
   // States
   const [urlType, setUrlType] = useState("video");
   const [youTubeURL, setYouTubeURL] = useState(
@@ -31,6 +31,7 @@ const YoutubeQR = ({ setText, setChanged }) => {
                 setText("");
               }
 
+              setNewQR(false);
               setChanged(true);
             }}
           >

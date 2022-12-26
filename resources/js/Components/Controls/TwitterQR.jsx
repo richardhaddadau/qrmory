@@ -1,4 +1,4 @@
-const TwitterQR = ({ setText, setChanged }) => {
+const TwitterQR = ({ setText, setChanged, setNewQR }) => {
   return (
     <>
       <label className="control-label">
@@ -12,6 +12,7 @@ const TwitterQR = ({ setText, setChanged }) => {
             className="control-input"
             onChange={(el) => {
               setText(`https://twitter.com/${el.target.value}`);
+              setNewQR(false);
               setChanged(true);
             }}
           />

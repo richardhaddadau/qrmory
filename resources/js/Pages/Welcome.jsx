@@ -21,6 +21,7 @@ import YoutubeQR from "../Components/Controls/YoutubeQR";
 const Welcome = () => {
   // States
   const [qrValue, setQrValue] = useState("Welcome to QRmory!");
+  const [newQR, setNewQR] = useState(true);
   const [textValue, setTextValue] = useState("");
   const [qrControl, setQrControl] = useState(null);
   const [qrChanged, setQrChanged] = useState(true);
@@ -40,37 +41,57 @@ const Welcome = () => {
     website: [
       "Website",
       "Link to a page or site",
-      <WebsiteQR setText={setTextValue} setChanged={setQrChanged} />,
+      <WebsiteQR
+        setText={setTextValue}
+        setChanged={setQrChanged}
+        setNewQR={setNewQR}
+      />,
     ],
     facebook: [
       "Facebook",
       "Facebook page/group",
-      <FacebookQR setText={setTextValue} setChanged={setQrChanged} />,
+      <FacebookQR
+        setText={setTextValue}
+        setChanged={setQrChanged}
+        setNewQR={setNewQR}
+      />,
     ],
     instagram: [
       "Instagram",
       "Instagram account",
-      <InstagramQR setText={setTextValue} setChanged={setQrChanged} />,
+      <InstagramQR
+        setText={setTextValue}
+        setChanged={setQrChanged}
+        setNewQR={setNewQR}
+      />,
     ],
     twitter: [
       "Twitter",
       "Twitter account",
-      <TwitterQR setText={setTextValue} setChanged={setQrChanged} />,
+      <TwitterQR
+        setText={setTextValue}
+        setChanged={setQrChanged}
+        setNewQR={setNewQR}
+      />,
     ],
     youTube: [
       "YouTube",
       "YouTube video",
-      <YoutubeQR setText={setTextValue} setChanged={setQrChanged} />,
+      <YoutubeQR
+        setText={setTextValue}
+        setChanged={setQrChanged}
+        setNewQR={setNewQR}
+      />,
     ],
     // email: [
     //     "Email",
     //     "Preset an email",
-    //     <EmailQR setText={setTextValue} setChanged={setQrChanged} />,
+    //     <EmailQR setText={setTextValue}  setChanged={setQrChanged} setNewQR={setNewQR} />,
     // ],
     // socialMedia: [
     //     "Social Media",
     //     "Share your profiles",
-    //     <SocialMediaQR setText={setTextValue} setChanged={setQrChanged} />,
+    //     <SocialMediaQR setText={setTextValue}  setChanged={setQrChanged} setNewQR={setNewQR} />,
     // ],
     // eBusinessCard: ["E-Biz Card", "The modern business card"],
     // poll: ["Poll", "Run a quick poll"],
@@ -82,17 +103,21 @@ const Welcome = () => {
     // phone: [
     //     "Phone",
     //     "Set up an easy call",
-    //     <PhoneQR setText={setTextValue} setChanged={setQrChanged} />,
+    //     <PhoneQR setText={setTextValue}  setChanged={setQrChanged} setNewQR={setNewQR} />,
     // ],
     // sms: [
     //     "SMS",
     //     "Preset an SMS",
-    //     <SmsQR setText={setTextValue} setChanged={setQrChanged} />,
+    //     <SmsQR setText={setTextValue}  setChanged={setQrChanged} setNewQR={setNewQR} />,
     // ],
     text: [
       "Text",
       "Display a text message",
-      <TextQR setText={setTextValue} setChanged={setQrChanged} />,
+      <TextQR
+        setText={setTextValue}
+        setChanged={setQrChanged}
+        setNewQR={setNewQR}
+      />,
     ],
     // wifi: ["WiFi", "Share WiFi details"],
     // location: ["Location", "Share a map address"],
@@ -228,6 +253,7 @@ const Welcome = () => {
                       className="block control-input"
                       onChange={(el) => {
                         setQrTitle(el.target.value);
+                        setNewQR(false);
                       }}
                       value={qrTitle}
                     />
@@ -248,6 +274,12 @@ const Welcome = () => {
                   >
                     Generate QR
                   </button>
+
+                  {qrChanged && !newQR ? (
+                    <p className="mt-4 text-rose-500 italic">
+                      Click the button above to sync the new changes
+                    </p>
+                  ) : null}
                 </div>
               </div>
 

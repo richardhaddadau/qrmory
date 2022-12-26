@@ -1,4 +1,4 @@
-const InstagramQR = ({ setText, setChanged }) => {
+const InstagramQR = ({ setText, setChanged, setNewQR }) => {
   return (
     <>
       <label className="control-label">
@@ -12,6 +12,7 @@ const InstagramQR = ({ setText, setChanged }) => {
             className="control-input"
             onChange={(el) => {
               setText(`https://www.instagram.com/${el.target.value}`);
+              setNewQR(false);
               setChanged(true);
             }}
           />
