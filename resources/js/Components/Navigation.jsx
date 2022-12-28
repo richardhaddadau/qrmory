@@ -5,13 +5,13 @@ const Navigation = (props) => {
     home: ["Home", "/"],
     // about: ["About", "/about"],
     // features: ["Features", "/features"],
-    // pricing: ["Pricing", "/pricing"],
+    pricing: ["Pricing", "/pricing"],
     // blog: ["Blog", "/blog"],
   };
 
   return (
     <>
-      <ul className="mx-auto flex flex-col lg:flex-row lg:items-center justify-evenly w-full">
+      <ul className="mx-auto flex flex-col lg:flex-row lg:items-center justify-center gap-3 w-full">
         {Object.keys(navItems).map((key) => {
           return (
             <li

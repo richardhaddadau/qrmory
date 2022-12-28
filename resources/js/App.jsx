@@ -13,6 +13,7 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy.jsx";
 import CookiePolicy from "./Pages/CookiePolicy.jsx";
 import HelpCenter from "./Pages/Support/HelpCenter.jsx";
 import { useEffect } from "react";
+import Pricing from "./Pages/Pricing.jsx";
 
 ReactGA.initialize("G-SG52HNQMDP");
 
@@ -33,6 +34,7 @@ const App = () => {
       <Route path="/help" element={<HelpCenter />} />
 
       {/* Standard */}
+      <Route path="/pricing" element={<Pricing />} />
       <Route path="/" element={<Welcome />} />
     </Routes>
   );

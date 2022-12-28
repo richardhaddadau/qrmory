@@ -6,7 +6,6 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 const NavBar = ({
-  props,
   className = "",
   absolute = true,
   logoColour = "white",
@@ -33,7 +32,8 @@ const NavBar = ({
 
       <nav className={navClasses}>
         <div className="grid grid-cols-12 col-span-12 w-full max-w-7xl">
-          <section className="flex flex-row items-center col-span-3">
+          {/* Logo */}
+          <section className="flex flex-row items-center col-span-2">
             <a href="/">
               {fullLogo ? (
                 <Logo className="w-28" logoColour={logoColour} />
@@ -43,7 +43,7 @@ const NavBar = ({
             </a>
           </section>
 
-          <section className="lg:hidden flex justify-end col-span-9 z-50">
+          <section className="lg:hidden flex justify-end col-span-10 z-50">
             <div
               className="cursor-pointer relative py-3 px-2 flex flex-col justify-between w-10 h-10 bg-white rounded"
               onClick={handleMenu}
@@ -82,8 +82,7 @@ const NavBar = ({
           <section
             className={
               "absolute p-4 pt-16 sm:p-6 lg:p-0 lg:relative flex flex-col lg:flex-row top-0 left-0 h-screen lg:h-auto" +
-              " w-screen" +
-              " lg:w-auto max-w-xs lg:max-w-none lg:col-span-9 bg-qrmory-purple-900 lg:bg-transparent rounded-tr-xl" +
+              " w-screen lg:w-auto max-w-xs lg:max-w-none lg:col-span-10 bg-qrmory-purple-900 lg:bg-transparent rounded-tr-xl" +
               " lg:rounded-none transition-all duration-500 " +
               (menuOpen ? "left-0" : "-left-full lg:left-0")
             }
