@@ -14,6 +14,27 @@ const Pricing = () => {
       generalFeatures: [],
       coa: "Create Free Account",
     },
+    {
+      title: "Plus",
+      cost: "Free",
+      mainFeatures: [],
+      generalFeatures: [],
+      coa: "Create Free Account",
+    },
+    {
+      title: "Pro",
+      cost: "Free",
+      mainFeatures: [],
+      generalFeatures: [],
+      coa: "Create Free Account",
+    },
+    {
+      title: "Enterprise",
+      cost: "Free",
+      mainFeatures: [],
+      generalFeatures: [],
+      coa: "Create Free Account",
+    },
   ];
   return (
     <>
@@ -29,11 +50,14 @@ const Pricing = () => {
             <section className="py-12 lg:px-12 rounded">
               <h3 className="text-xl uppercase font-bold">Account</h3>
               <h2 className="-mt-2 font-header text-4.5xl">Pricing</h2>
-              <article className="mx-auto mt-12 flex flex-row w-full max-w-lg.5">
-                <div>Starter</div>
-                <div>Plus</div>
-                <div>Pro</div>
-                <div>Enterprise</div>
+              <article className="mx-auto mt-12 flex flex-row gap-4 w-full">
+                {pricingTiers.map(x => {
+                  return (
+                  <div className='p-4 border-1 border-qrmory-purple-400 rounded-sm lg:w-3/12' key={x['title']}>
+                    <p className='font-bold'>{x['title']}</p>
+                    <div className=""></div>
+                  </div>
+                )})}
               </article>
             </section>
           </div>
