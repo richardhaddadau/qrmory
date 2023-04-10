@@ -35,7 +35,7 @@ const App = () => {
 
       {/* Standard */}
       <Route path="/pricing" element={<Pricing />} />
-      <Route path="/" element={<Welcome />} />
+      <Route exact path="/" element={<Welcome />} />
     </Routes>
   );
 };
