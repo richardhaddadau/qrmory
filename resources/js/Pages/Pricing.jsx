@@ -2,21 +2,12 @@ import { Helmet } from "react-helmet-async";
 import NavBar from "../Components/NavBar.jsx";
 import Standard from "../Layouts/Standard.jsx";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const Pricing = () => {
   const [monthlyPricing, setMonthlyPricing] = useState(true);
   const pricingTiers = [
-    {
-      title: "Free",
-      costPayMonthly: "Free",
-      costPayAnnually: "Free",
-      mainFeatures: ["2 Dynamic QR Codes", "50,000 Scans"],
-      generalFeatures: [
-        "Colour your QR",
-        "Download in PNG, SVG and JPG Formats",
-      ],
-      coa: "Create Free Account",
-    },
     {
       title: "Starter",
       costPayMonthly: 5.99,
@@ -85,12 +76,43 @@ const Pricing = () => {
           logoColour="white"
         />
 
-        <main className="pt-10 px-8">
+        <main className="pt-10 lg:px-8">
           <div className="mx-auto mt-16 w-full max-w-7xl text-center text-stone-200">
-            <section className="py-12 lg:px-12 rounded-xl bg-qrmory-purple-900">
+            <section className="py-12 px-5 md:px-10 rounded-xl bg-qrmory-purple-900">
               <h3 className="text-xl uppercase font-bold">Account</h3>
               <h2 className="-mt-2 font-header text-4.5xl">Pricing</h2>
-              <article className="mx-auto mt-12 flex flex-row gap-2 w-full">
+              {/* Free */}
+              <div className="mt-12 p-4 border-2 border-qrmory-purple-700 rounded-lg w-full shadow-lg">
+                <div>
+                  <p className="font-bold text-base">Free</p>
+                  <p className="mt-8 font-bold text-3xl text-slate-300">Free</p>
+                  <p className="mb-8 font-light text-base text-slate-500">
+                    Forever
+                  </p>
+                </div>
+                <button className="mb-8 p-2 w-full max-w-sm lg:w-3/6 bg-qrmory-purple-300 hover:bg-qrmory-purple-200 rounded-lg text-qrmory-purple-900 transition-all">
+                  Sign Up
+                </button>
+
+                <p className="mb-2 font-light text-slate-400 text-left text-sm">
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    className="mr-1 mt-1 absolute text-qrmory-purple-300"
+                  />
+                  <p className="ml-5">Colour your QR</p>
+                </p>
+
+                <p className="mb-2 font-light text-slate-400 text-left text-sm">
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    className="mr-1 mt-1 absolute text-qrmory-purple-300"
+                  />
+                  <p className="ml-5">Download in PNG, SVG and JPG Formats</p>
+                </p>
+              </div>
+
+              {/* Other Tiers */}
+              <article className="mx-auto lg:px-0 mt-2 flex flex-col lg:flex-row gap-2 w-full">
                 {pricingTiers.map((x) => {
                   return (
                     <div
@@ -128,10 +150,14 @@ const Pricing = () => {
                       {x["mainFeatures"].map((feature) => {
                         return (
                           <p
-                            className="font-light text-slate-400 text-left text-sm leading-loose"
+                            className="mb-2 font-light text-slate-400 text-left text-sm"
                             key={feature}
                           >
-                            {feature}
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              className="mr-1 mt-1 absolute text-qrmory-purple-300"
+                            />
+                            <p className="ml-5">{feature}</p>
                           </p>
                         );
                       })}
@@ -139,14 +165,17 @@ const Pricing = () => {
                       {x["generalFeatures"].map((feature) => {
                         return (
                           <p
-                            className="font-light text-slate-400 text-left text-sm leading-loose"
+                            className="mb-2 font-light text-slate-400 text-left text-sm"
                             key={feature}
                           >
-                            {feature}
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              className="mr-1 mt-1 absolute text-qrmory-purple-300"
+                            />
+                            <p className="ml-5">{feature}</p>
                           </p>
                         );
                       })}
-                      <div className=""></div>
                     </div>
                   );
                 })}
