@@ -298,7 +298,7 @@ const Welcome = () => {
                     id="final-qr"
                     renderAs="svg"
                     value={qrValue}
-                    fgColor={qrChanged ? "#78716c" : "#1E073E"}
+                    fgColor={qrChanged ? "#78716c" : "#000000"}
                     size={180}
                     level="M"
                   />
