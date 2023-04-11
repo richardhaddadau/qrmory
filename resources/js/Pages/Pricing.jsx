@@ -90,66 +90,15 @@ const Pricing = () => {
             <section className="py-12 lg:px-12 rounded-xl bg-qrmory-purple-900">
               <h3 className="text-xl uppercase font-bold">Account</h3>
               <h2 className="-mt-2 font-header text-4.5xl">Pricing</h2>
-              <article className="mx-auto mt-12 flex flex-row gap-2 w-full">
-                {pricingTiers.map((x) => {
-                  return (
-                    <div
-                      className="p-4 border-2 border-qrmory-purple-700 rounded-lg lg:w-3/12 shadow-lg"
-                      key={x["title"]}
-                    >
-                      {monthlyPricing ? (
-                        <div>
-                          <p className="font-bold text-base">{x["title"]}</p>
-                          <p className="mt-8 font-bold text-3xl text-slate-300">
-                            {x["costPayMonthly"]}
-                          </p>
-                          <p className="mb-8 font-light text-base text-slate-500">
-                            {x["costPayMonthly"] === "Free"
-                              ? "Forever"
-                              : "Billed Monthly"}
-                          </p>
-                        </div>
-                      ) : (
-                        <div>
-                          <p className="mt-8 font-bold text-3xl text-slate-300">
-                            {x["costPayAnnually"]}
-                          </p>
-                          <p className="mb-8 font-light text-base text-slate-500">
-                            {x["costPayAnnually"] === "Free"
-                              ? "Forever"
-                              : "Billed Annually"}
-                          </p>
-                        </div>
-                      )}
-                      <button className="mb-8 p-2 w-full bg-qrmory-purple-300 hover:bg-qrmory-purple-200 rounded-lg text-qrmory-purple-900 transition-all">
-                        Sign Up
-                      </button>
-
-                      {x["mainFeatures"].map((feature) => {
-                        return (
-                          <p
-                            className="font-light text-slate-400 text-left text-sm leading-loose"
-                            key={feature}
-                          >
-                            {feature}
-                          </p>
-                        );
-                      })}
-
-                      {x["generalFeatures"].map((feature) => {
-                        return (
-                          <p
-                            className="font-light text-slate-400 text-left text-sm leading-loose"
-                            key={feature}
-                          >
-                            {feature}
-                          </p>
-                        );
-                      })}
-                      <div className=""></div>
-                    </div>
-                  );
-                })}
+              <article className="mx-auto mt-12 flex flex-row gap-4 w-full justify-center italic">
+                Coming soon
+                {/*{pricingTiers.map(x => {*/}
+                {/*  return (*/}
+                {/*  <div className='p-4 border-1 border-qrmory-purple-400 rounded-sm lg:w-3/12' key={x['title']}>*/}
+                {/*    <p className='font-bold'>{x['title']}</p>*/}
+                {/*    <div className=""></div>*/}
+                {/*  </div>*/}
+                {/*)})}*/}
               </article>
             </section>
           </div>
