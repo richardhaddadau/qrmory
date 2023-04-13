@@ -81,9 +81,9 @@ const NavBar = ({
           {/* Main Menu */}
           <section
             className={
-              "absolute p-4 pt-16 sm:p-6 lg:p-0 lg:relative flex flex-col lg:flex-row top-0 left-0 h-screen lg:h-auto" +
-              " w-screen lg:w-auto max-w-xs lg:max-w-none lg:col-span-10 bg-qrmory-purple-900 lg:bg-transparent rounded-tr-xl" +
-              " lg:rounded-none transition-all duration-500 " +
+              "absolute p-4 pt-16 sm:p-6 lg:p-0 lg:relative flex flex-col lg:flex-row top-0" +
+              " h-screen lg:h-auto w-full lg:w-auto max-w-xs lg:max-w-none lg:col-span-10 bg-qrmory-purple-900" +
+              " lg:bg-transparent rounded-tr-xl lg:rounded-none transition-all duration-500 " +
               (menuOpen ? "left-0" : "-left-full lg:left-0")
             }
           >
