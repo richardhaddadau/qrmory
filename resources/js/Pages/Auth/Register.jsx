@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import Standard from "../../Layouts/Standard.jsx";
 import NavBar from "../../Components/NavBar.jsx";
-import { FaLock, HiOutlineMail, MdEmail } from "react-icons/all";
+import { FaLock, MdEmail } from "react-icons/all";
 
 const Register = () => {
   const [emailValue, setEmailValue] = useState("");
@@ -24,7 +24,7 @@ const Register = () => {
           <div className="mx-auto mt-16 w-full max-w-7xl text-center text-stone-200">
             <section className="">
               <article>
-                <h1 className="mb-8 text-3xl">Sign up with email</h1>
+                <h1 className="mb-8 text-3xl font-bold">Sign up with email</h1>
                 <form className="mb-10">
                   <div className="admin-wrapper relative flex flex-row mx-auto w-full max-w-sm">
                     <input
@@ -55,7 +55,7 @@ const Register = () => {
                   </div>
                   <a href="/signup">
                     <button className="p-4 w-full max-w-sm bg-qrmory-purple-300 hover:bg-qrmory-purple-200 rounded-md text-qrmory-purple-900 transition-all">
-                      Create a Free Account
+                      Sign up
                     </button>
                   </a>
                 </form>

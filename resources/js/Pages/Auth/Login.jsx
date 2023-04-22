@@ -6,6 +6,9 @@ import { useState } from "react";
 import useForm from "../../Helpers/useForm.js";
 import { FaEye, FaEyeSlash } from "react-icons/all";
 import InputError from "../../Components/InputError";
+import NavBar from "../../Components/NavBar.jsx";
+import { FaLock, MdEmail } from "react-icons/all";
+import Standard from "../../Layouts/Standard.jsx";
 
 const Login = () => {
   // States
@@ -22,70 +25,78 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [emailValue, setEmailValue] = useState("");
+  const [passwordValue, setPasswordValue] = useState("");
 
   return (
-    <Guest>
+    <>
       <Helmet>
         <title>QRmory - Login</title>
       </Helmet>
 
-      <div>
-        <Label forInput="email" value="Email" />
-
-        <input
-          type="email"
-          name="email"
-          value={data.email || ""}
-          className="mt-1 block w-full control-input"
-          autoComplete="username"
-          onChange={setData}
-          title="Remember to fill out your email address"
-          required
+      <Standard admin={true}>
+        <NavBar
+          className={"bg-qrmory-purple-800 text-qrmory-purple-500"}
+          logoColour="white"
+          admin={true}
         />
+        <main className="relative pt-10 lg:px-7 flex justify-center items-center h-screen bg-qrmory-purple-800">
+          <div className="mx-auto mt-16 w-full max-w-7xl text-center text-stone-200">
+            <section className="">
+              <article>
+                <h1 className="mb-8 text-3xl font-bold">Log in to QRmory</h1>
+                <form className="mb-10">
+                  <div className="admin-wrapper mb-4 relative flex flex-row mx-auto w-full max-w-sm">
+                    <input
+                      className="relative admin-input p-4 pl-12 border-2 rounded-lg bg-qrmory-purple-700 border-qrmory-purple-500 hover:border-qrmory-purple-400 focus:border-qrmory-purple-400 w-full transition-all outline-0"
+                      type="email"
+                      onChange={(el) => setEmailValue(el.target.value)}
+                      value={emailValue}
+                      placeholder="Email"
+                    />
+                    <MdEmail
+                      className="admin-icon absolute left-3 top-4 opacity-70"
+                      size={25}
+                    />
+                  </div>
 
-        {isError[0] === "email" ? (
-          <InputError message={isError[1]} className="mt-2" />
-        ) : null}
-      </div>
-
-      <div className="mt-6">
-        <Label forInput="password" value="Password" />
-
-        <div className="flex flex-row items-center">
-          <input
-            type={passwordType}
-            name="password"
-            value={data.password || ""}
-            className="mt-1 block w-full control-input"
-            autoComplete="current-password"
-            onChange={setData}
-            title="Please enter your password"
-            required
-          />
-
-          <button
-            className="ml-2 p-3 rounded border border-qrmory-purple-800 hover:border-qrmory-purple-400 bg-white hover:bg-qrmory-purple-400 text-qrmory-purple-800 hover:text-white hover:translate-x-1 hover:-translate-y-1 transition-all duration-300"
-            onClick={togglePassword}
-            type="button"
-          >
-            {passwordType === "password" ? <FaEye /> : <FaEyeSlash />}
-          </button>
-        </div>
-
-        {isError[0] === "password" ? (
-          <InputError message={isError[1]} className="mt-2" />
-        ) : null}
-      </div>
-
-      <div className="mt-6 flex items-center justify-center">
-        <Link
-          to="/register"
-          className="px-1.5 py-1 text-sm text-stone-400 hover:text-white hover:bg-qrmory-purple-400 rounded hover:translate-x-1 hover:-translate-y-1 transition-all duration-300"
-        >
-          Not a member yet?
-        </Link>
-      </div>
-    </Guest>
+                  <div className="admin-wrapper mb-2 relative flex flex-row mx-auto w-full max-w-sm">
+                    <input
+                      className="relative admin-input p-4 pl-12 border-2 rounded-lg bg-qrmory-purple-700 border-qrmory-purple-500 hover:border-qrmory-purple-400 focus:border-qrmory-purple-400 w-full transition-all outline-0"
+                      type="password"
+                      onChange={(el) => setPasswordValue(el.target.value)}
+                      value={passwordValue}
+                      placeholder="Password"
+                    />
+                    <FaLock
+                      className="admin-icon absolute left-4 top-4 opacity-70"
+                      size={21}
+                    />
+                  </div>
+                  <p className="mb-6 text-sm text-qrmory-purple-300 hover:text-qrmory-purple-200 hover:underline transition-all">
+                    Forgot your password?
+                  </p>
+                  <a href="/login">
+                    <button className="p-4 w-full max-w-sm bg-qrmory-purple-300 hover:bg-qrmory-purple-200 rounded-md text-qrmory-purple-900 transition-all">
+                      Log in
+                    </button>
+                  </a>
+                </form>
+                <p>
+                  Don't have an account yet?{" "}
+                  <a
+                    href="/signup"
+                    className="text-qrmory-purple-300 hover:text-qrmory-purple-200 hover:underline transition-all"
+                  >
+                    Sign up
+                  </a>
+                </p>
+              </article>
+            </section>
+          </div>
+        </main>
+      </Standard>
+    </>
   );
 };
 
