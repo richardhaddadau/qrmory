@@ -15,7 +15,7 @@ const Navigation = (props) => {
         {Object.keys(navItems).map((key) => {
           return (
             <li
-              className="lg:px-3 py-1 rounded text-sm hover:bg-qrmory-purple-400 text-white uppercase tracking-wide hover:font-bold hover:transition-all duration-300"
+              className="pl-3 lg:px-3 py-1 rounded text-sm hover:bg-qrmory-purple-400 text-white uppercase tracking-wide hover:font-bold hover:transition-all duration-300"
               key={key}
             >
               <Link to={navItems[key][1]}>{navItems[key][0]}</Link>

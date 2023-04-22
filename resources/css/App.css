@@ -52,6 +52,10 @@
     transition: all 3ms ease;
 }
 
+.admin-input {
+    border-width: 1px !important;
+}
+
 .control-input.short {
     margin-left: 10px;
     max-width: 24rem;

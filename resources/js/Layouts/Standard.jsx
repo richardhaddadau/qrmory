@@ -1,13 +1,13 @@
 import React from "react";
 import MyFooter from "../Components/MyFooter";
 
-const Standard = ({ children }) => {
+const Standard = ({ admin = false, children }) => {
   // States
 
   return (
     <div className="flex flex-col items-stretch w-full bg-stone-100">
       {children}
-      <MyFooter />
+      {admin ? null : <MyFooter />}
     </div>
   );
 };

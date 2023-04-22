@@ -18,7 +18,7 @@ const Pricing = () => {
         "Colour your QR",
         "Download in PNG, SVG and JPG Formats",
       ],
-      coa: "Try Starter",
+      coa: "Try the Starter",
     },
     {
       title: "Plus",
@@ -28,9 +28,8 @@ const Pricing = () => {
       generalFeatures: [
         "Colour your QR",
         "Download in PNG, SVG and JPG Formats",
-        "Teams coming soon",
       ],
-      coa: "Get Plus",
+      coa: "Get the Plus",
     },
     {
       title: "Pro",
@@ -46,7 +45,7 @@ const Pricing = () => {
         "Download in PNG, SVG and JPG Formats",
         "Teams coming soon",
       ],
-      coa: "Buy Pro",
+      coa: "Buy the Pro",
     },
     {
       title: "Enterprise",
@@ -108,9 +107,11 @@ const Pricing = () => {
                     </p>
                   </div>
 
-                  <button className="mb-8 p-2 w-full bg-qrmory-purple-300 hover:bg-qrmory-purple-200 rounded-lg text-qrmory-purple-900 transition-all">
-                    Start Now for Free!
-                  </button>
+                  <a href="/signup">
+                    <button className="mb-8 p-2 w-full bg-qrmory-purple-300 hover:bg-qrmory-purple-200 rounded-lg text-qrmory-purple-900 transition-all">
+                      Start Now for Free!
+                    </button>
+                  </a>
 
                   <p className="mb-2 font-light text-slate-400 text-left text-sm">
                     <FontAwesomeIcon
@@ -158,6 +159,8 @@ const Pricing = () => {
                             <p className="mb-8 font-light text-base text-slate-500">
                               {x["costPayMonthly"] === "Free"
                                 ? "Forever"
+                                : x["costPayMonthly"] === "Custom"
+                                ? "Get in touch for a quote"
                                 : "Billed Monthly"}
                             </p>
                           </div>
@@ -176,13 +179,19 @@ const Pricing = () => {
                             <p className="mb-8 font-light text-base text-slate-500">
                               {x["costPayAnnually"] === "Free"
                                 ? "Forever"
+                                : x["costPayMonthly"] === "Custom"
+                                ? "Get in touch for a quote"
                                 : "Billed Annually"}
                             </p>
                           </div>
                         )}
-                        <button className="mb-8 p-2 w-full bg-qrmory-purple-300 hover:bg-qrmory-purple-200 rounded-lg text-qrmory-purple-900 transition-all">
-                          {x["coa"]}
-                        </button>
+                        <a href="/signup">
+                          <button className="mb-8 p-2 w-full bg-qrmory-purple-300 hover:bg-qrmory-purple-200 rounded-lg text-qrmory-purple-900 transition-all">
+                            {x["costPayMonthly"] === "Custom"
+                              ? x["coa"]
+                              : "Create a Free Account"}
+                          </button>
+                        </a>
 
                         {x["mainFeatures"].map((feature) => {
                           return (
