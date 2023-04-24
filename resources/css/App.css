@@ -53,7 +53,18 @@
 }
 
 .admin-input {
-    border-width: 1px !important;
+    padding: 0.65rem 1rem 0.65rem 3rem;
+    margin: auto;
+
+    width: 100%;
+    max-width: 32rem;
+
+    background-color: transparent;
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-color: theme('colors.qrmory-purple-400') !important;
+
+    outline: none;
 }
 
 .control-input.short {
