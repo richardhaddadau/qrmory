@@ -28,7 +28,6 @@ const DashNavBar = ({ props }) => {
                 " font-medium hover:translate-x-1 hover:-translate-y-1 transition-all duration-300 "
               }
               onClick={async () => {
-                // console.log(await faunaDriver.LogOut());
                 localStorage.removeItem("qrui");
                 localStorage.removeItem("qrus");
                 localStorage.removeItem("qrud");

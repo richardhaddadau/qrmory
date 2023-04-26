@@ -1,5 +1,3 @@
-import { faunaDriver } from "../Helpers/FaunaDriver";
-
 class CompressIt {
   constructor(value) {
     this.slug = "";
