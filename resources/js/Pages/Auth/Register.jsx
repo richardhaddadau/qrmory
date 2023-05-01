@@ -5,11 +5,19 @@ import NavBar from "../../Components/NavBar.jsx";
 import { FaLock, MdEmail } from "react-icons/all";
 
 // Firebase
-import { SignMeUp } from "../../Helpers/Firebase.js";
+import { SignMeUp } from "../../Helpers/Firebase/Auth.js";
 
 const Register = () => {
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
+
+  const CompleteSignUp = () => {
+    try {
+      SignMeUp(emailValue, passwordValue);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <>
