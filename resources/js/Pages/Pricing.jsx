@@ -149,42 +149,44 @@ const Pricing = () => {
                     >
                       <div className="mx-auto max-w-sm">
                         <p className="font-bold text-base">{x["title"]}</p>
-                        {monthlyPricing ? (
-                          <div>
-                            <p className="mt-8 font-bold text-3xl text-slate-300">
-                              {x["costPayMonthly"] === "Custom"
-                                ? x["costPayMonthly"]
-                                : "$" + x["costPayMonthly"]}
-                            </p>
-                            <p className="mb-8 font-light text-base text-slate-500">
-                              {x["costPayMonthly"] === "Free"
-                                ? "Forever"
-                                : x["costPayMonthly"] === "Custom"
-                                ? "Get in touch for a quote"
-                                : "Billed Monthly"}
-                            </p>
-                          </div>
-                        ) : (
-                          <div>
-                            <p className="mt-8 font-bold text-3xl text-slate-300">
-                              <span className="line-through text-rose-500">
+                        <div>
+                          {monthlyPricing ? (
+                            <>
+                              <p className="mt-8 font-bold text-3xl text-slate-300">
                                 {x["costPayMonthly"] === "Custom"
-                                  ? null
-                                  : "$" + x["costPayMonthly"]}
-                              </span>{" "}
-                              {x["costPayAnnually"] === "Custom"
-                                ? x["costPayAnnually"]
-                                : "$" + x["costPayAnnually"]}
-                            </p>
-                            <p className="mb-8 font-light text-base text-slate-500">
-                              {x["costPayAnnually"] === "Free"
-                                ? "Forever"
-                                : x["costPayMonthly"] === "Custom"
-                                ? "Get in touch for a quote"
-                                : "Billed Annually"}
-                            </p>
-                          </div>
-                        )}
+                                  ? x["costPayMonthly"]
+                                  : "$" + x["costPayMonthly"] + "/mo."}
+                              </p>
+                              <p className="mb-8 font-light text-base text-slate-500">
+                                {x["costPayMonthly"] === "Free"
+                                  ? "Forever"
+                                  : x["costPayMonthly"] === "Custom"
+                                  ? "Get in touch for a quote"
+                                  : "Billed Monthly"}
+                              </p>
+                            </>
+                          ) : (
+                            <>
+                              <p className="mt-8 font-bold text-3xl text-slate-300">
+                                <span className="line-through text-rose-500">
+                                  {x["costPayMonthly"] === "Custom"
+                                    ? null
+                                    : "$" + x["costPayMonthly"]}
+                                </span>{" "}
+                                {x["costPayAnnually"] === "Custom"
+                                  ? x["costPayAnnually"]
+                                  : "$" + x["costPayAnnually"] + "/mo."}
+                              </p>
+                              <p className="mb-8 font-light text-base text-slate-500">
+                                {x["costPayAnnually"] === "Free"
+                                  ? "Forever"
+                                  : x["costPayMonthly"] === "Custom"
+                                  ? "Get in touch for a quote"
+                                  : "Billed Annually"}
+                              </p>
+                            </>
+                          )}
+                        </div>
                         <a href="/signup">
                           <button className="mb-8 p-2 w-full bg-qrmory-purple-300 hover:bg-qrmory-purple-200 rounded-lg text-qrmory-purple-900 transition-all">
                             {x["costPayMonthly"] === "Custom"
