@@ -10,7 +10,7 @@ admin.initializeApp();
 //   response.send("Hello from Firebase!");
 // });
 
-// create a new cloud function to add new subscribers
+// At Subscription: Add new subscriber to Mailerlite
 exports.addSubscriberToMailerlite = functions.auth
   .user()
   .onCreate(async (user) => {
