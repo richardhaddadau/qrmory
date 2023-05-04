@@ -72,7 +72,7 @@ const Register = () => {
                     hover:bg-qrmory-purple-400 text-sm font-medium text-qrmory-purple-800 hover:text-white rounded uppercase font-semibold hover:translate-x-1 hover:-translate-y-1 transition-all duration-300"
                     onClick={() => {
                       if (emailValue.length > 0 && passwordValue.length > 0) {
-                        SignMeUp(emailValue, passwordValue);
+                        CompleteSignUp(emailValue, passwordValue);
                       }
                     }}
                   >

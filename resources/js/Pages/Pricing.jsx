@@ -168,11 +168,11 @@ const Pricing = () => {
                           ) : (
                             <>
                               <p className="mt-8 font-bold text-3xl text-slate-300">
-                                <span className="line-through text-rose-500">
+                                <span className="block line-through text-rose-500">
                                   {x["costPayMonthly"] === "Custom"
                                     ? null
                                     : "$" + x["costPayMonthly"]}
-                                </span>{" "}
+                                </span>
                                 {x["costPayAnnually"] === "Custom"
                                   ? x["costPayAnnually"]
                                   : "$" + x["costPayAnnually"] + "/mo."}
