@@ -26,8 +26,8 @@ const App = () => {
       <Route path="/dashboard" element={<Dashboard />} />
 
       {/* Policies */}
-      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="/cookie-policy" element={<CookiePolicy />} />
 
       {/* Support */}
