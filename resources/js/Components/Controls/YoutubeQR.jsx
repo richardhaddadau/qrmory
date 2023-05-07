@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const YoutubeQR = ({ setText, setChanged, setNewQR }) => {
   return (
     <>
