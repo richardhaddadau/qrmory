@@ -2,13 +2,14 @@ import { Helmet } from "react-helmet-async";
 import Guest from "../../Layouts/Guest";
 import { Link } from "react-router-dom";
 import Label from "../../Components/Label";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useForm from "../../Helpers/useForm.js";
 import { FaEye, FaEyeSlash } from "react-icons/all";
 import InputError from "../../Components/InputError";
 import NavBar from "../../Components/NavBar.jsx";
 import { FaLock, MdEmail } from "react-icons/all";
 import Standard from "../../Layouts/Standard.jsx";
+import { CheckIfLoggedIn } from "../../Helpers/Firebase/Auth.js";
 
 const Login = () => {
   // States
@@ -27,6 +28,10 @@ const Login = () => {
   });
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
+
+  useEffect(() => {
+    console.log(CheckIfLoggedIn());
+  }, []);
 
   return (
     <>
