@@ -1,7 +1,4 @@
-import { useState } from "react";
-
 const YoutubeQR = ({ setText, setChanged, setNewQR }) => {
-
   return (
     <>
       <label className="control-label">
@@ -10,12 +7,10 @@ const YoutubeQR = ({ setText, setChanged, setNewQR }) => {
           <input
             id="youtube-input"
             type="text"
-            className={
-              "control-input "
-            }
+            className={"control-input"}
             onChange={(el) => {
               if (el.target.value) {
-                setText(`${el.target.value}`);
+                setText(el.target.value);
               } else {
                 setText("");
               }
