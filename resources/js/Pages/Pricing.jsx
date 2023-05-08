@@ -81,7 +81,6 @@ const Pricing = () => {
             <section className="py-12 px-5 md:px-10 rounded-none lg:rounded-xl bg-qrmory-purple-900">
               <h3 className="text-xl uppercase font-bold">Account</h3>
               <h2 className="-mt-2 font-header text-4.5xl">Pricing</h2>
-<<<<<<< HEAD
 
               <div className="mt-12 flex flex-row justify-center items-center">
                 <p className="mr-4">Monthly Billing</p>
@@ -119,7 +118,7 @@ const Pricing = () => {
                       icon={faCheck}
                       className="mr-1 mt-1 absolute text-qrmory-purple-300"
                     />
-                    <p className="ml-5">2 Dynamic QR Codes</p>
+                    <span className="ml-5">2 Dynamic QR Codes</span>
                   </p>
 
                   <p className="mb-2 font-light text-slate-400 text-left text-sm">
@@ -127,7 +126,7 @@ const Pricing = () => {
                       icon={faCheck}
                       className="mr-1 mt-1 absolute text-qrmory-purple-300"
                     />
-                    <p className="ml-5">Colour your QR</p>
+                    <span className="ml-5">Colour your QR</span>
                   </p>
 
                   <p className="mb-2 font-light text-slate-400 text-left text-sm">
@@ -135,7 +134,9 @@ const Pricing = () => {
                       icon={faCheck}
                       className="mr-1 mt-1 absolute text-qrmory-purple-300"
                     />
-                    <p className="ml-5">Download in PNG, SVG and JPG Formats</p>
+                    <span className="ml-5">
+                      Download in PNG, SVG and JPG Formats
+                    </span>
                   </p>
                 </div>
               </div>
@@ -206,7 +207,7 @@ const Pricing = () => {
                                 icon={faCheck}
                                 className="mr-1 mt-1 absolute text-qrmory-purple-300"
                               />
-                              <p className="ml-5">{feature}</p>
+                              <span className="ml-5">{feature}</span>
                             </p>
                           );
                         })}
@@ -221,7 +222,7 @@ const Pricing = () => {
                                 icon={faCheck}
                                 className="mr-1 mt-1 absolute text-qrmory-purple-300"
                               />
-                              <p className="ml-5">{feature}</p>
+                              <span className="ml-5">{feature}</span>
                             </p>
                           );
                         })}
@@ -229,7 +230,7 @@ const Pricing = () => {
                     </div>
                   );
                 })}
-=======
+              </article>
               <article className="mx-auto mt-12 flex flex-row gap-4 w-full justify-center italic">
                 Coming soon
                 {/*{pricingTiers.map(x => {*/}
@@ -239,7 +240,6 @@ const Pricing = () => {
                 {/*    <div className=""></div>*/}
                 {/*  </div>*/}
                 {/*)})}*/}
->>>>>>> cca5ef9f1563af5ec963bdfd1d2200cb7dd1b719
               </article>
               <p className="mt-8 text-lg">See Full Feature List</p>
             </section>
