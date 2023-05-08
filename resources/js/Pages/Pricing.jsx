@@ -83,7 +83,13 @@ const Pricing = () => {
               <h2 className="-mt-2 font-header text-4.5xl">Pricing</h2>
 
               <div className="mt-12 flex flex-row justify-center items-center">
-                <p className="mr-4">Monthly Billing</p>
+                <p
+                  className={
+                    "mr-4 " + (monthlyPricing ? "text-rose-500" : null)
+                  }
+                >
+                  Monthly Billing
+                </p>
                 <ReactSwitch
                   checked={!monthlyPricing}
                   onChange={() => setMonthlyPricing(!monthlyPricing)}
@@ -91,7 +97,13 @@ const Pricing = () => {
                   uncheckedIcon={null}
                   checkedIcon={null}
                 />
-                <p className="ml-3">Yearly Billing</p>
+                <p
+                  className={
+                    "ml-3 " + (monthlyPricing ? null : "text-rose-500")
+                  }
+                >
+                  Yearly Billing
+                </p>
               </div>
 
               {/* Free */}
@@ -230,16 +242,6 @@ const Pricing = () => {
                     </div>
                   );
                 })}
-              </article>
-              <article className="mx-auto mt-12 flex flex-row gap-4 w-full justify-center italic">
-                Coming soon
-                {/*{pricingTiers.map(x => {*/}
-                {/*  return (*/}
-                {/*  <div className='p-4 border-1 border-qrmory-purple-400 rounded-sm lg:w-3/12' key={x['title']}>*/}
-                {/*    <p className='font-bold'>{x['title']}</p>*/}
-                {/*    <div className=""></div>*/}
-                {/*  </div>*/}
-                {/*)})}*/}
               </article>
               <p className="mt-8 text-lg">See Full Feature List</p>
             </section>
