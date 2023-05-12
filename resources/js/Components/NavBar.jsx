@@ -2,9 +2,10 @@ import Navigation from "./Navigation";
 import Logo from "./Logo";
 import NavBarAction from "./NavBarAction";
 import ShortLogo from "./ShortLogo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../Helpers/firebase/Auth.js";
 const NavBar = ({
   className = "",
   absolute = true,
@@ -14,6 +15,19 @@ const NavBar = ({
 }) => {
   // States
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const navClasses =
     className +
@@ -90,22 +104,37 @@ const NavBar = ({
                   (menuOpen ? "left-0" : "-left-full lg:left-0")
                 }
               >
-                <section className="pb-2 lg:pb-0 pl-2 lg:pl-0 mb-4 lg:mb-0 lg:grow flex flex-row items-center lg:col-span-6 border-b-1 lg:border-0">
+                <section className="pb-2 lg:pb-0 pl-0 mb-4 lg:mb-0 lg:grow flex flex-col lg:flex-row items-center lg:col-span-6 border-b-1 lg:border-0">
                   <Navigation />
                 </section>
 
-                <section className="flex flex-row items-center justify-end col-span-12 lg:col-span-3">
-                  <section className="flex flex-col lg:flex-row lg:items-center justify-end gap-2 w-full lg:w-fit">
-                    <p className="text-qrmory-purple-300 italic">
-                      Free accounts coming soon
-                    </p>
-                    {/*<NavBarAction*/}
-                    {/*  value="Create a Free Account"*/}
-                    {/*  destination="./register"*/}
-                    {/*  className="bg-white lg:bg-qrmory-purple-300 hover:bg-white lg:hover:bg-qrmory-purple-400 text-qrmory-purple-900 lg:text-white font-medium border-qrmory-purple-300 shadow-lg shadow-qrmory-purple-900 lg:hover:translate-x-1 lg:hover:-translate-y-1"*/}
-                    {/*/>*/}
-                    {/*<NavBarAction value="Sign In" destination="/login" />*/}
-                  </section>
+                <section className="flex flex-row items-center lg:justify-end col-span-12 lg:col-span-3">
+                  {/*<section className="flex flex-col lg:flex-row lg:items-center justify-end gap-2 w-full lg:w-fit">*/}
+                  {user ? (
+                    user.displayName
+                  ) : (
+                    <div className="pl-2 col-span-12 lg:pl-0 flex flex-col lg:flex-row gap-2 text-sm text-center text-white uppercase tracking-wide w-full">
+                      <a
+                        href="/login"
+                        className="lg:mr-4 lg:px-3 py-1 hover:bg-qrmory-purple-400 hover:font-bold hover:transition-all duration-300"
+                      >
+                        Login
+                      </a>
+                      <a
+                        href="/signup"
+                        className="px-3 py-1 border-1 border-qrmory-purple-400 rounded-lg text-center hover:bg-qrmory-purple-400 hover:transition-all duration-300"
+                      >
+                        Create a free account
+                      </a>
+                    </div>
+                  )}
+                  {/*<NavBarAction*/}
+                  {/*  value="Create a Free Account"*/}
+                  {/*  destination="./register"*/}
+                  {/*  className="bg-white lg:bg-qrmory-purple-300 hover:bg-white lg:hover:bg-qrmory-purple-400 text-qrmory-purple-900 lg:text-white font-medium border-qrmory-purple-300 shadow-lg shadow-qrmory-purple-900 lg:hover:translate-x-1 lg:hover:-translate-y-1"*/}
+                  {/*/>*/}
+                  {/*<NavBarAction value="Sign In" destination="/login" />*/}
+                  {/*</section>*/}
                 </section>
 
                 {/*<button*/}
