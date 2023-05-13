@@ -39,6 +39,17 @@ const NavBar = ({
     setMenuOpen(!menuOpen);
   };
 
+  // useEffect to monitor screen resize and if screen is large, setmenuOpen to false
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1200) {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -48,7 +59,7 @@ const NavBar = ({
       <nav className={navClasses}>
         <div className="grid grid-cols-12 col-span-12 w-full max-w-7xl">
           {/* Logo */}
-          <section className="flex flex-row items-center col-span-2">
+          <section className="flex flex-row items-center col-span-10 lg:col-span-2">
             <a href="/">
               {fullLogo ? (
                 <Logo className="w-28" logoColour={logoColour} />
@@ -58,136 +69,78 @@ const NavBar = ({
             </a>
           </section>
 
-          {admin ? null : (
-            <>
-              <section className="lg:hidden flex justify-end col-span-10 z-50">
-                <div
-                  className="cursor-pointer relative py-3 px-2 flex flex-col justify-between w-10 h-10 bg-white rounded"
-                  onClick={handleMenu}
-                >
-                  <span
-                    className={
-                      (menuOpen ? "rotate-45 translate-y-1.75" : null) +
-                      " block h-0.5 bg-qrmory-purple-900 transform transition-all duration-500"
-                    }
-                  ></span>
-                  <span
-                    className={
-                      (menuOpen ? "opacity-0" : null) +
-                      " block h-0.5 bg-qrmory-purple-900 transition-all duration-500"
-                    }
-                  ></span>
-                  <span
-                    className={
-                      (menuOpen ? "-rotate-45 -translate-y-1.5" : null) +
-                      " block h-0.5 bg-qrmory-purple-900 transition-all duration-500"
-                    }
-                  ></span>
-                </div>
-              </section>
-
-              {/* Menu Underlay */}
+          <>
+            <section className="lg:hidden flex justify-end col-span-2 lg:col-span-10 z-50">
               <div
-                className={
-                  "absolute block top-0 h-screen w-full bg-black opacity-50 transition-all duration-300 " +
-                  (menuOpen ? "left-0" : "-left-full")
-                }
+                className="cursor-pointer relative py-3 px-2 flex flex-col justify-between w-10 h-10 bg-white rounded"
                 onClick={handleMenu}
-              ></div>
-
-              {/* Main Menu */}
-              <section
-                className={
-                  "absolute p-4 pt-16 sm:p-6 lg:p-0 lg:relative flex flex-col lg:flex-row top-0" +
-                  " h-screen lg:h-auto w-full lg:w-auto max-w-xs lg:max-w-none lg:col-span-10 bg-qrmory-purple-900" +
-                  " lg:bg-transparent rounded-tr-xl lg:rounded-none transition-all duration-500 " +
-                  (menuOpen ? "left-0" : "-left-full lg:left-0")
-                }
               >
-                <section className="pb-2 lg:pb-0 pl-0 mb-4 lg:mb-0 lg:grow flex flex-col lg:flex-row items-center lg:col-span-6 border-b-1 lg:border-0">
-                  <Navigation />
-                </section>
+                <span
+                  className={
+                    (menuOpen ? "rotate-45 translate-y-1.75" : null) +
+                    " block h-0.5 bg-qrmory-purple-900 transform transition-all duration-500"
+                  }
+                ></span>
+                <span
+                  className={
+                    (menuOpen ? "opacity-0" : null) +
+                    " block h-0.5 bg-qrmory-purple-900 transition-all duration-500"
+                  }
+                ></span>
+                <span
+                  className={
+                    (menuOpen ? "-rotate-45 -translate-y-1.5" : null) +
+                    " block h-0.5 bg-qrmory-purple-900 transition-all duration-500"
+                  }
+                ></span>
+              </div>
+            </section>
 
-                <section className="flex flex-row items-center lg:justify-end col-span-12 lg:col-span-3">
-                  {/*<section className="flex flex-col lg:flex-row lg:items-center justify-end gap-2 w-full lg:w-fit">*/}
-                  {user ? (
-                    user.displayName
-                  ) : (
-                    <div className="pl-2 col-span-12 lg:pl-0 flex flex-col lg:flex-row gap-2 text-sm text-center text-white uppercase tracking-wide w-full">
-                      <a
-                        href="/login"
-                        className="lg:mr-4 lg:px-3 py-1 hover:bg-qrmory-purple-400 hover:font-bold hover:transition-all duration-300"
-                      >
-                        Login
-                      </a>
-                      <a
-                        href="/signup"
-                        className="px-3 py-1 border-1 border-qrmory-purple-400 rounded-lg text-center hover:bg-qrmory-purple-400 hover:transition-all duration-300"
-                      >
-                        Create a free account
-                      </a>
-                    </div>
-                  )}
-                  {/*<NavBarAction*/}
-                  {/*  value="Create a Free Account"*/}
-                  {/*  destination="./register"*/}
-                  {/*  className="bg-white lg:bg-qrmory-purple-300 hover:bg-white lg:hover:bg-qrmory-purple-400 text-qrmory-purple-900 lg:text-white font-medium border-qrmory-purple-300 shadow-lg shadow-qrmory-purple-900 lg:hover:translate-x-1 lg:hover:-translate-y-1"*/}
-                  {/*/>*/}
-                  {/*<NavBarAction value="Sign In" destination="/login" />*/}
-                  {/*</section>*/}
-                </section>
+            {/* Menu Underlay */}
+            <div
+              className={
+                "absolute block lg:hidden top-0 h-screen w-full bg-black opacity-50 transition-all duration-300 " +
+                (menuOpen ? "left-0" : "-left-full")
+              }
+              onClick={handleMenu}
+            ></div>
 
-                {/*<button*/}
-                {/*  className="text-gray-500 w-10 h-10 relative focus:outline-none bg-white"*/}
-                {/*  onClick={handleMenu}*/}
-                {/*>*/}
-                {/*  <span className="sr-only">Open main menu</span>*/}
-                {/*  <div className="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">*/}
-                {/*    <span*/}
-                {/*      aria-hidden="true"*/}
-                {/*      className={*/}
-                {/*        "block absolute h-0.5 w-5 bg-current transform transition" +*/}
-                {/*        " duration-500 ease-in-out " +*/}
-                {/*        menuOpen*/}
-                {/*          ? "rotate-45"*/}
-                {/*          : "-translate-y-1.5"*/}
-                {/*      }*/}
-                {/*    ></span>*/}
-                {/*    <span*/}
-                {/*      aria-hidden="true"*/}
-                {/*      className={*/}
-                {/*        "block absolute  h-0.5 w-5 bg-current transform transition" +*/}
-                {/*        " duration-500 ease-in-out " +*/}
-                {/*        menuOpen*/}
-                {/*          ? "opacity-0"*/}
-                {/*          : null*/}
-                {/*      }*/}
-                {/*    ></span>*/}
-                {/*    <span*/}
-                {/*      aria-hidden="true"*/}
-                {/*      className={*/}
-                {/*        "block absolute  h-0.5 w-5 bg-current transform  transition" +*/}
-                {/*        " duration-500 ease-in-out " +*/}
-                {/*        menuOpen*/}
-                {/*          ? "-rotate-45"*/}
-                {/*          : "translate-y-1.5"*/}
-                {/*      }*/}
-                {/*    ></span>*/}
-                {/*  </div>*/}
-                {/*</button>*/}
-
-                {/*{props.auth.user ? (*/}
-                {/*  <section className="flex flex-row items-center justify-end gap-2">*/}
-                {/*    {props.auth.user ? "" : ""}*/}
-                {/*    <NavBarAction value="Dashboard" destination="/dashboard" />*/}
-
-                {/*    <NavBarAction value="Sign Out" destination="/logout" />*/}
-                {/*  </section>*/}
-                {/*) : (*/}
-                {/*)}*/}
+            {/* Main Menu */}
+            <section
+              className={
+                "absolute p-4 pt-16 sm:p-6 lg:p-0 lg:relative flex flex-col lg:flex-row top-0" +
+                " h-screen lg:h-auto w-full lg:w-auto max-w-xs lg:max-w-none lg:col-span-10 bg-qrmory-purple-900" +
+                " lg:bg-transparent rounded-tr-xl lg:rounded-none transition-all duration-500 " +
+                (menuOpen ? "left-0" : "-left-full lg:left-0")
+              }
+            >
+              <section className="pb-2 lg:pb-0 pl-0 mb-4 lg:mb-0 lg:grow flex flex-col lg:flex-row items-center lg:col-span-6 border-b-1 lg:border-0">
+                <Navigation />
               </section>
-            </>
-          )}
+
+              <section className="flex flex-row items-center lg:justify-end col-span-12 lg:col-span-3">
+                {/*<section className="flex flex-col lg:flex-row lg:items-center justify-end gap-2 w-full lg:w-fit">*/}
+                {user ? (
+                  user.displayName
+                ) : (
+                  <div className="pl-2 col-span-12 lg:pl-0 flex flex-col lg:flex-row gap-2 text-sm text-center text-white uppercase tracking-wide w-full">
+                    <a
+                      href="/login"
+                      className="lg:mr-4 lg:px-3 py-1 hover:bg-qrmory-purple-400 hover:font-bold hover:transition-all duration-300"
+                    >
+                      Login
+                    </a>
+                    <a
+                      href="/signup"
+                      className="px-3 py-1 border-1 border-qrmory-purple-400 rounded-lg text-center hover:bg-qrmory-purple-400 hover:transition-all duration-300"
+                    >
+                      Create a free account
+                    </a>
+                  </div>
+                )}
+              </section>
+            </section>
+          </>
         </div>
       </nav>
     </>
