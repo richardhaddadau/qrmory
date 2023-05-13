@@ -63,4 +63,4 @@ const LogMeOut = () => {
     });
 };
 
-export { SignMeUp, LogMeIn, CheckIfLoggedIn, LogMeOut };
+export { auth, SignMeUp, LogMeIn, CheckIfLoggedIn, LogMeOut };

@@ -45,7 +45,7 @@ const Login = () => {
           logoColour="white"
           admin={true}
         />
-        <main className="relative pt-10 lg:px-7 flex justify-center items-center h-screen bg-qrmory-purple-900">
+        <main className="relative py-20 lg:px-7 flex justify-center items-center min-h-screen h-fit bg-qrmory-purple-900">
           <div className="mx-auto mt-16 py-16 px-4 w-full md:max-w-xl md:rounded-3xl text-center text-stone-500 bg-white">
             <section className="">
               <article>
