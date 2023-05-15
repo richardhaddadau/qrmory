@@ -4,18 +4,30 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  sendEmailVerification,
 } from "firebase/auth";
-import { app } from "./Firebase.js";
+import { collection, addDoc } from "firebase/firestore";
+import { app, db } from "./Firebase.js";
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-const SignMeUp = (email, password) => {
+const SignMeUp = (email, password, name) => {
   createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    .then(async (userCredential) => {
       // Signed in
       const user = userCredential.user;
-      // ...
+
+      // Send Email Verification
+      await sendEmailVerification(user);
+
+      const docRef = await addDoc(collection(db, "users"), {
+        name: name || "",
+        qrCodesQuota: 2, // should be global
+        qrCodesUsed: 0,
+        subscriptionLevel: 1,
+        accountID: user.uid,
+      });
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -30,24 +42,32 @@ const LogMeIn = (email, password) => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      alert(user);
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
     });
 };
 
 const CheckIfLoggedIn = () => {
-  let result = null;
-  onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, async (user) => {
+    console.log("enter");
     if (user) {
-      // User is signed in.
-      console.log(user);
+      console.log("found user");
+      // Get user data from the Firebase user
+      const doc = await db.collection("users").doc(user.uid).get();
+
+      if (doc.exists) {
+        console.log("found document");
+        const result = doc.data();
+        return result;
+      } else {
+        console.log("No such document!");
+      }
     } else {
-      // No user is signed in.
-      console.log("No user is signed in.");
+      return null;
     }
   });
 };
