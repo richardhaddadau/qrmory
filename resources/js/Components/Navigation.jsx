@@ -11,19 +11,18 @@ const Navigation = (props) => {
 
   return (
     <>
-      <div className="mt-3 flex flex-col lg:flex-row justify-center gap-5 w-full">
+      <ul className="mx-auto flex flex-col lg:flex-row lg:items-center justify-center gap-3 w-full">
         {Object.keys(navItems).map((key) => {
           return (
-            <Link
-              to={navItems[key][1]}
-              className="py-1 text-sm hover:bg-qrmory-purple-400 text-white text-center uppercase tracking-wide hover:transition-all duration-300"
+            <li
+              className="pl-3 lg:px-3 py-1 rounded text-sm hover:bg-qrmory-purple-400 text-white uppercase tracking-wide hover:font-bold hover:transition-all duration-300"
               key={key}
             >
-              <p>{navItems[key][0]}</p>
-            </Link>
+              <Link to={navItems[key][1]}>{navItems[key][0]}</Link>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </>
   );
 };
