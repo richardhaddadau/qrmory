@@ -14,6 +14,7 @@ import CookiePolicy from "./Pages/CookiePolicy.jsx";
 import HelpCenter from "./Pages/Support/HelpCenter.jsx";
 import { useEffect } from "react";
 import Pricing from "./Pages/Pricing.jsx";
+import PasswordReset from "./Pages/Auth/PasswordReset.jsx";
 
 ReactGA.initialize("G-SG52HNQMDP");
 
@@ -23,6 +24,7 @@ const App = () => {
       {/* Auth */}
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Register />} />
+      <Route path="/password-reset" element={<PasswordReset />} />
       <Route path="/dashboard" element={<Dashboard />} />
 
       {/* Policies */}
