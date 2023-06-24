@@ -25,6 +25,22 @@ export default function Dashboard(props) {
     setMyCodes(codesData);
   };
 
+  const getCookie = (name) => {
+    const completeCookie = decodeURIComponent(document.cookie);
+    const cookieArr = completeCookie.split(";");
+    const cookieObj = {};
+
+    cookieArr.map(
+      (cookie) => (cookieObj[cookie.split("=")[0]] = cookie.split("=")[1])
+    );
+
+    return cookieObj[name];
+  };
+
+  useEffect(() => {
+    console.log(getCookie("access.zn5rj95b"));
+  });
+
   const sideNav = {
     dashboard: {
       title: "Dashboard",
