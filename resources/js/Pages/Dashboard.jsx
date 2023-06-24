@@ -12,6 +12,7 @@ import CreateACode from "../Components/Dashboard/CreateACode";
 import DashboardMain from "../Components/Dashboard/DashboardMain";
 import MyCodes from "../Components/Dashboard/MyCodes";
 import Analytics from "../Components/Dashboard/Analytics";
+import * as jose from "jose";
 
 export default function Dashboard(props) {
   // States
@@ -26,14 +27,15 @@ export default function Dashboard(props) {
   };
 
   const getCookie = (name) => {
-    const completeCookie = decodeURIComponent(document.cookie);
+    const completeCookie = document.cookie;
     const cookieArr = completeCookie.split(";");
     const cookieObj = {};
 
     cookieArr.map(
-      (cookie) => (cookieObj[cookie.split("=")[0]] = cookie.split("=")[1])
+      (cookie) =>
+        (cookieObj[cookie.split("=")[0].trim()] = cookie.split("=")[1].trim())
     );
-
+    // console.log(cookieObj);
     return cookieObj[name];
   };
 
