@@ -1,7 +1,7 @@
-import Userfront from "@userfront/react";
 import { Helmet } from "react-helmet-async";
 import NavBar from "../../Components/NavBar.jsx";
 import Standard from "../../Layouts/Standard.jsx";
+import Userfront from "@userfront/react";
 
 Userfront.init("zn5rj95b");
 
