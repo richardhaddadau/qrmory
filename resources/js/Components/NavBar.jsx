@@ -1,11 +1,9 @@
 import Navigation from "./Navigation";
 import Logo from "./Logo";
-import NavBarAction from "./NavBarAction";
 import ShortLogo from "./ShortLogo";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../Helpers/firebase/Auth.js";
+import Userfront from "@userfront/react";
 const NavBar = ({
   className = "",
   absolute = true,
@@ -15,19 +13,10 @@ const NavBar = ({
 }) => {
   // States
   const [menuOpen, setMenuOpen] = useState(false);
-  const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-    });
+  const [loggedInUser, setLoggedInUser] = useState(Userfront.user);
 
-    return () => unsubscribe();
-  }, []);
+  useEffect(() => {}, []);
 
   const navClasses =
     className +
@@ -119,25 +108,35 @@ const NavBar = ({
               </section>
 
               <section className="flex flex-row items-center lg:justify-end col-span-12 lg:col-span-3">
-                {/*<section className="flex flex-col lg:flex-row lg:items-center justify-end gap-2 w-full lg:w-fit">*/}
-                {user ? (
-                  user.displayName
-                ) : (
-                  <div className="pl-2 col-span-12 lg:pl-0 flex flex-col lg:flex-row gap-2 text-sm text-center text-white uppercase tracking-wide w-full">
-                    <a
-                      href="/login"
-                      className="lg:mr-4 lg:px-3 py-1 hover:bg-qrmory-purple-400 hover:font-bold hover:transition-all duration-300"
-                    >
-                      Login
-                    </a>
-                    <a
-                      href="/signup"
-                      className="px-3 py-1 border-1 border-qrmory-purple-400 rounded-lg text-center hover:bg-qrmory-purple-400 hover:transition-all duration-300"
-                    >
-                      Create a free account
-                    </a>
-                  </div>
-                )}
+                <div className="col-span-12 lg:pl-0 flex flex-col lg:flex-row gap-2 text-center text-white tracking-wide w-full">
+                  {loggedInUser["userUuid"] ? (
+                    <p className="text-center font-light">
+                      Hello{" "}
+                      <a
+                        className="font-bold text-qrmory-purple-300 py-1 rounded hover:px-3 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-300"
+                        href="/dashboard"
+                      >
+                        {loggedInUser["username"]}
+                      </a>
+                      ,
+                    </p>
+                  ) : (
+                    <div className="text-sm uppercase">
+                      <a
+                        href="/login"
+                        className="lg:mr-4 lg:px-3 py-1 hover:bg-qrmory-purple-400 hover:font-bold hover:transition-all duration-300"
+                      >
+                        Login
+                      </a>
+                      <a
+                        href="/signup"
+                        className="px-3 py-1 border-1 border-qrmory-purple-400 rounded-lg text-center hover:bg-qrmory-purple-400 hover:transition-all duration-300"
+                      >
+                        Create a free account
+                      </a>
+                    </div>
+                  )}
+                </div>
               </section>
             </section>
           </>

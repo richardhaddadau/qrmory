@@ -1,6 +1,7 @@
 import ShortLogo from "./ShortLogo";
 import { FaPowerOff } from "react-icons/all";
 import { Link } from "react-router-dom";
+import Userfront from "@userfront/react";
 
 const DashNavBar = ({ props }) => {
   return (
@@ -27,11 +28,7 @@ const DashNavBar = ({ props }) => {
                 " rounded tracking-widest uppercase text-sm text-white hover:text-qrmory-purple-500" +
                 " font-medium hover:translate-x-1 hover:-translate-y-1 transition-all duration-300 "
               }
-              onClick={async () => {
-                localStorage.removeItem("qrui");
-                localStorage.removeItem("qrus");
-                localStorage.removeItem("qrud");
-              }}
+              onClick={() => Userfront.logout()}
             >
               Sign Out
             </article>
