@@ -24,7 +24,7 @@ const App = () => {
       {/* Auth */}
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Register />} />
-      <Route path="/password-reset" element={<PasswordReset />} />
+      <Route path="/reset" element={<PasswordReset />} />
       <Route path="/dashboard" element={<Dashboard />} />
 
       {/* Policies */}

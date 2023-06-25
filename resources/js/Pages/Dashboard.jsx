@@ -12,7 +12,8 @@ import CreateACode from "../Components/Dashboard/CreateACode";
 import DashboardMain from "../Components/Dashboard/DashboardMain";
 import MyCodes from "../Components/Dashboard/MyCodes";
 import Analytics from "../Components/Dashboard/Analytics";
-import * as jose from "jose";
+
+import Userfront from "@userfront/react";
 
 export default function Dashboard(props) {
   // States
@@ -26,21 +27,8 @@ export default function Dashboard(props) {
     setMyCodes(codesData);
   };
 
-  const getCookie = (name) => {
-    const completeCookie = document.cookie;
-    const cookieArr = completeCookie.split(";");
-    const cookieObj = {};
-
-    cookieArr.map(
-      (cookie) =>
-        (cookieObj[cookie.split("=")[0].trim()] = cookie.split("=")[1].trim())
-    );
-    // console.log(cookieObj);
-    return cookieObj[name];
-  };
-
   useEffect(() => {
-    console.log(getCookie("access.zn5rj95b"));
+    console.log(JSON.stringify(Userfront.user, null, 2));
   });
 
   const sideNav = {

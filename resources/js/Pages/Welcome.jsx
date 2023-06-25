@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import Userfront from "@userfront/react";
 
 // QRmory Libraries
 import Standard from "../Layouts/Standard";
@@ -27,8 +28,6 @@ const Welcome = () => {
   const [qrControl, setQrControl] = useState(null);
   const [qrChanged, setQrChanged] = useState(true);
   const [qrTitle, setQrTitle] = useState("Made with QRmory");
-
-  const [user, setUser] = useState(null);
 
   const randomTitles = [
     "New QRmory Code",
@@ -128,12 +127,7 @@ const Welcome = () => {
     // ethereum: ["Ethereum", "Quick Ethereum payments"],
   };
 
-  const loginWithData = () => {};
-
   useEffect(() => {
-    // Check if user is logged in
-    setUser(CheckIfLoggedIn);
-
     const qrSelectors = document.querySelectorAll(".qr-selector");
 
     for (const item of qrSelectors) {
