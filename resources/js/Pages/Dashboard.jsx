@@ -73,7 +73,7 @@ export default function Dashboard(props) {
                 {Object.keys(sideNav).map((item) => {
                   return (
                     <div
-                      className="cursor-pointer flex sm:grow sm:w-44 items-center xs:justify-center bg-white hover:bg-qrmory-purple-500 text-qrmory-purple-500 hover:text-white transition-all duration-300"
+                      className="cursor-pointer flex sm:grow sm:w-44 items-center xs:justify-center bg-white hover:bg-qrmory-purple-800 text-qrmory-purple-800 hover:text-white transition-all duration-300"
                       onClick={() => {
                         setSelectedComponent(
                           sideNav[item]["component"]

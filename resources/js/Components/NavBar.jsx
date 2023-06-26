@@ -118,7 +118,6 @@ const NavBar = ({
                       >
                         {loggedInUser["username"]}
                       </a>
-                      ,
                     </p>
                   ) : (
                     <div className="text-sm uppercase">
