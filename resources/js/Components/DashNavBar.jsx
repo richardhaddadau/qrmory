@@ -1,5 +1,5 @@
 import ShortLogo from "./ShortLogo";
-import { FaPowerOff } from "react-icons/all";
+import { FaPowerOff } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Userfront from "@userfront/react";
 

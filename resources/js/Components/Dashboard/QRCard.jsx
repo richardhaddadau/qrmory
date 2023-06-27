@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import DeleteIcon from "@mui/icons-material/Delete";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -7,7 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import CircularProgress from "@mui/material/CircularProgress";
-import { FaPencilAlt, FaSave, FaTimes, FaTrash } from "react-icons/all";
+import { FaPencil, FaFloppyDisk, FaXmark, FaTrash } from "react-icons/fa6";
 import { Skeleton } from "@mui/material";
 import useForm from "../../Helpers/useForm";
 
@@ -61,7 +60,7 @@ const QRCard = ({
             <CircularProgress size={22} color={"inherit"} />
           ) : openEdit ? (
             <div className="flex flex-row flex-nowrap gap-4">
-              <FaTimes
+              <FaXmark
                 className="cursor-pointer text-stone-400 hover:text-red-700 transition-all duration-300"
                 title="Cancel Editing"
                 size={22}
@@ -69,7 +68,7 @@ const QRCard = ({
                   changed ? setOpenAlert(true) : setOpenEdit(false);
                 }}
               />
-              <FaSave
+              <FaFloppyDisk
                 className="cursor-pointer text-stone-400 hover:text-qrmory-purple-500 transition-all duration-300"
                 title="Save Changes"
                 size={22}
@@ -82,7 +81,7 @@ const QRCard = ({
               />
             </div>
           ) : (
-            <FaPencilAlt
+            <FaPencil
               className="cursor-pointer text-stone-400 hover:text-qrmory-purple-500 transition-all duration-300"
               title="Edit Code"
               size={20}

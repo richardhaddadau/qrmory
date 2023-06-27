@@ -1,11 +1,11 @@
 import React from "react";
 
 const DashboardMain = () => {
-    return (
-        <>
-            <div className="text-left">Dashboard</div>
-        </>
-    );
+  return (
+    <>
+      <h1 className="text-left text-xl font-bold">Dashboard</h1>
+    </>
+  );
 };
 
 export default DashboardMain;
