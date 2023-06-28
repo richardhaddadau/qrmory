@@ -1,4 +1,3 @@
-import { app } from "./Firebase.js";
 import {
   collection,
   getDocs,
@@ -10,28 +9,45 @@ import {
   where,
   getFirestore,
 } from "firebase/firestore/lite";
-
-const db = getFirestore(app);
+import { db } from "Firebase";
 
 // Get all codes
-const ListCodes = async () => {
-  const codesCollection = collection(db, "qrCodes");
-  const codesDocs = await getDocs(codesCollection);
-  const codesList = codesDocs.docs.map((doc) => doc.data());
-  return codesList;
+const ListCodes = async (userId) => {
+  const foundCodes = {};
+
+  const codesRef = db.collection("qrCodes");
+  const querySnapshot = await codesRef.where("author", "==", userId).get();
+
+  if (querySnapshot.empty) {
+    return [];
+  }
+
+  querySnapshot.forEach((doc) => {
+    foundCodes[doc.id] = doc.data();
+  });
+
+  return foundCodes;
 };
 
-const AddCode = async (shortCode, longUrl) => {
-  const codesRef = doc(db, "qrCodes", shortCode);
-  await setDoc(codesRef, {
-    shortCode,
-    longUrl,
-  });
+const AddCode = async (userID, shortCode, longUrl) => {
+  await db
+    .collection("qrCodes")
+    .add({
+      author: userID,
+      shortCode,
+      longUrl,
+    })
+    .then(() => {
+      return 200;
+    })
+    .catch((e) => {
+      return e;
+    });
 };
 
 const GetDoc = async (ref) => {
-  const docRef = doc(db, "qrCodes", ref);
-  const docSnap = await getDoc(docRef);
+  const codesRef = db.collection("qrCodes").doc(ref);
+  const doc = await codesRef.get();
 
   if (docSnap.exists()) {
     return docSnap.data();
@@ -50,3 +66,5 @@ const GetDocs = async (filter, kind) => {
     docArray.push(doc.data());
   });
 };
+
+export { ListCodes, AddCode, GetDoc, GetDocs };

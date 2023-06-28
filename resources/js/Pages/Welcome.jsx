@@ -18,7 +18,6 @@ import TextQR from "../Components/Controls/TextQR";
 import TwitterQR from "../Components/Controls/TwitterQR";
 import WebsiteQR from "../Components/Controls/WebsiteQR";
 import YoutubeQR from "../Components/Controls/YoutubeQR";
-import { CheckIfLoggedIn, LogMeOut } from "../Helpers/Firebase/Auth.js";
 
 const Welcome = () => {
   // States
