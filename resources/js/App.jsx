@@ -1,6 +1,16 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import ReactGA from "react-ga";
+
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  RedirectToSignIn,
+  SignIn,
+  SignUp,
+} from "@clerk/clerk-react";
 
 import "../css/App.css";
 
@@ -12,33 +22,54 @@ import TermsAndConditions from "./Pages/TermsAndConditions.jsx";
 import PrivacyPolicy from "./Pages/PrivacyPolicy.jsx";
 import CookiePolicy from "./Pages/CookiePolicy.jsx";
 import HelpCenter from "./Pages/Support/HelpCenter.jsx";
-import { useEffect } from "react";
 import Pricing from "./Pages/Pricing.jsx";
 import PasswordReset from "./Pages/Auth/PasswordReset.jsx";
 
 ReactGA.initialize("G-SG52HNQMDP");
 
 const App = () => {
+  if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
+    throw new Error("Missing Publishable Key");
+  }
+
+  const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
   return (
-    <Routes>
-      {/* Auth */}
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Register />} />
-      <Route path="/reset" element={<PasswordReset />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+    <ClerkProvider publishableKey={clerkPubKey}>
+      <Routes>
+        {/* Auth */}
+        <Route path="/login" element={<Login />} />
+        {/*<Route path="/sign-up" element={<Register />} />*/}
+        <Route path="/sign-up" element={<Register />} />
+        {/*<Route path="/reset" element={<PasswordReset />} />*/}
+        <Route path="/reset" element={<PasswordReset />} />
+        <Route
+          path="/dashboard"
+          element={
+            <>
+              <SignedIn>
+                <Dashboard />
+              </SignedIn>
+              <SignedOut>
+                <RedirectToSignIn />
+              </SignedOut>
+            </>
+          }
+        />
 
-      {/* Policies */}
-      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-      <Route path="/cookie-policy" element={<CookiePolicy />} />
+        {/* Policies */}
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
 
-      {/* Support */}
-      <Route path="/help" element={<HelpCenter />} />
+        {/* Support */}
+        <Route path="/help" element={<HelpCenter />} />
 
-      {/* Standard */}
-      <Route path="/pricing" element={<Pricing />} />
-      <Route exact path="/" element={<Welcome />} />
-    </Routes>
+        {/* Standard */}
+        <Route path="/pricing" element={<Pricing />} />
+        <Route exact path="/" element={<Welcome />} />
+      </Routes>
+    </ClerkProvider>
   );
 };
 

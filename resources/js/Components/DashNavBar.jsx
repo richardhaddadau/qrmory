@@ -27,7 +27,7 @@ const DashNavBar = ({ props }) => {
                 " rounded tracking-widest uppercase text-sm text-white hover:text-qrmory-purple-800" +
                 " font-medium hover:translate-x-1 hover:-translate-y-1 transition-all duration-300 "
               }
-              onClick={}
+              // onClick={}
             >
               Sign Out
             </article>
