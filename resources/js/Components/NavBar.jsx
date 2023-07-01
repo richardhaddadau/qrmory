@@ -1,9 +1,10 @@
-import Navigation from "./Navigation";
-import Logo from "./Logo";
-import ShortLogo from "./ShortLogo";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import Userfront from "@userfront/react";
+
+import Navigation from "./Navigation";
+import ShortLogo from "./ShortLogo";
+import Logo from "./Logo";
+
 const NavBar = ({
   className = "",
   absolute = true,
@@ -13,8 +14,6 @@ const NavBar = ({
 }) => {
   // States
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const [loggedInUser, setLoggedInUser] = useState(Userfront.user);
 
   useEffect(() => {}, []);
 

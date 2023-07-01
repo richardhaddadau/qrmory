@@ -1,13 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import NavBar from "../../Components/NavBar.jsx";
 import Standard from "../../Layouts/Standard.jsx";
-import Userfront from "@userfront/react";
-
-Userfront.init("zn5rj95b");
-
-const PasswordResetForm = Userfront.build({
-  toolId: "orakndd",
-});
 
 const PasswordReset = () => {
   return (
@@ -22,9 +15,7 @@ const PasswordReset = () => {
           logoColour="white"
           admin={true}
         />
-        <main className="relative py-20 lg:px-7 flex justify-center items-center min-h-screen h-fit bg-qrmory-purple-900">
-          <PasswordResetForm />
-        </main>
+        <main className="relative py-20 lg:px-7 flex justify-center items-center min-h-screen h-fit bg-qrmory-purple-900"></main>
       </Standard>
     </>
   );

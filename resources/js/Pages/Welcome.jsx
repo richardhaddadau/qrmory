@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import Userfront from "@userfront/react";
 
 // QRmory Libraries
 import Standard from "../Layouts/Standard";

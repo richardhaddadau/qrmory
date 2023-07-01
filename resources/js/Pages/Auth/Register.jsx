@@ -1,7 +1,8 @@
+import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
+
 import Standard from "../../Layouts/Standard.jsx";
 import NavBar from "../../Components/NavBar.jsx";
-import { useForm } from "react-hook-form";
 
 import {
   HiOutlineLockClosed,
@@ -9,27 +10,11 @@ import {
   HiOutlineUser,
 } from "react-icons/hi";
 
-import Userfront from "@userfront/core";
-Userfront.init("zn5rj95b");
-
-// const SignupForm = Userfront.build({
-//   toolId: "nkanmom",
-// });
-
 const Register = () => {
   //  States
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data.email);
-
-    Userfront.signup({
-      method: "password",
-      email: data.email,
-      password: data.password,
-      name: data.name,
-    });
-  };
+  const onSubmit = (data) => {};
 
   return (
     <>

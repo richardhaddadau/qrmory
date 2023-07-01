@@ -14,8 +14,6 @@ import MyCodes from "../Components/Dashboard/MyCodes";
 import Analytics from "../Components/Dashboard/Analytics";
 import Quota from "../Components/Dashboard/Quota";
 
-import Userfront from "@userfront/react";
-
 export default function Dashboard(props) {
   // States
   const [myCodes, setMyCodes] = useState([]);
@@ -25,9 +23,7 @@ export default function Dashboard(props) {
     setMyCodes(codesData);
   };
 
-  useEffect(() => {
-    console.log(JSON.stringify(Userfront.user, null, 2));
-  });
+  useEffect(() => {}, []);
 
   const sideNav = {
     dashboard: {
@@ -54,7 +50,6 @@ export default function Dashboard(props) {
 
   return (
     <>
-      {/*{loggedInUser ? (*/}
       <>
         <Helmet>
           <title>Dashboard - QRmory</title>
