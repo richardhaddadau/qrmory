@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import DashNavBar from "../Components/DashNavBar";
+
+import { useUser } from "@clerk/clerk-react";
+
 import {
   HiOutlineTemplate,
   HiOutlinePlusCircle,
@@ -8,8 +10,10 @@ import {
   HiOutlineChartSquareBar,
   HiOutlineChartPie,
 } from "react-icons/hi";
-import CreateACode from "../Components/Dashboard/CreateACode";
+
+import DashNavBar from "../Components/DashNavBar";
 import DashboardMain from "../Components/Dashboard/DashboardMain";
+import CreateACode from "../Components/Dashboard/CreateACode";
 import MyCodes from "../Components/Dashboard/MyCodes";
 import Analytics from "../Components/Dashboard/Analytics";
 import Quota from "../Components/Dashboard/Quota";
@@ -19,11 +23,18 @@ export default function Dashboard(props) {
   const [myCodes, setMyCodes] = useState([]);
   const [selectedComponent, setSelectedComponent] = useState(<DashboardMain />);
 
+  const { isLoaded, isSignedIn, user } = useUser();
+
+  // In case the user signs out while on the page
+  if (!isLoaded || !isSignedIn) return null;
+
   const handleMyCodes = (codesData) => {
     setMyCodes(codesData);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log(JSON.stringify(user, null, 2));
+  }, []);
 
   const sideNav = {
     dashboard: {
