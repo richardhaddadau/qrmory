@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 import { useUser } from "@clerk/clerk-react";
 
@@ -33,7 +34,7 @@ export default function Dashboard(props) {
   };
 
   useEffect(() => {
-    console.log(JSON.stringify(user, null, 2));
+    // console.log(JSON.stringify(user, null, 2));
   }, []);
 
   const sideNav = {
