@@ -38,9 +38,9 @@ const App = () => {
     <ClerkProvider publishableKey={clerkPubKey}>
       <Routes>
         {/* Auth */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/login/*" element={<Login />} />
         {/*<Route path="/sign-up" element={<Register />} />*/}
-        <Route path="/sign-up" element={<Register />} />
+        <Route path="/sign-up/*" element={<Register />} />
         {/*<Route path="/reset" element={<PasswordReset />} />*/}
         <Route path="/reset" element={<PasswordReset />} />
         <Route
