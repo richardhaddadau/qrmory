@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
 
-import { useUser } from "@clerk/clerk-react";
+import { useUser, UserProfile } from "@clerk/clerk-react";
 
 import {
   HiOutlineTemplate,
@@ -10,6 +10,7 @@ import {
   HiOutlineBriefcase,
   HiOutlineChartSquareBar,
   HiOutlineChartPie,
+  HiX,
 } from "react-icons/hi";
 
 import DashNavBar from "../Components/DashNavBar";
@@ -23,6 +24,7 @@ export default function Dashboard(props) {
   // States
   const [myCodes, setMyCodes] = useState([]);
   const [selectedComponent, setSelectedComponent] = useState(<DashboardMain />);
+  const [profileSettings, setProfileSettings] = useState(false);
 
   const { isLoaded, isSignedIn, user } = useUser();
 
@@ -31,6 +33,13 @@ export default function Dashboard(props) {
 
   const handleMyCodes = (codesData) => {
     setMyCodes(codesData);
+  };
+
+  const handleProfileSettings = () => {
+    setProfileSettings(true);
+  };
+  const handleCloseSettings = () => {
+    setProfileSettings(false);
   };
 
   useEffect(() => {
@@ -69,8 +78,27 @@ export default function Dashboard(props) {
           <meta name="description" content="" />
         </Helmet>
 
+        <section
+          className={
+            "absolute flex justify-center items-center h-full w-full " +
+            (profileSettings ? "block" : "hidden")
+          }
+        >
+          <div className="absolute left-0 top-0 flex flex-col items-center justify-center h-full w-full bg-stone-800 opacity-80" />
+          <article className="flex justify-center w-full sm:w-11/12 h-full sm:h-3/5 overflow-hidden">
+            <UserProfile />
+            <div
+              className="absolute mt-4 p-1 right-16 bg-qrmory-purple-800 rounded-full cursor-pointer"
+              title="Close account settings"
+              onClick={handleCloseSettings}
+            >
+              <HiX size={30} className="fill-white" />
+            </div>
+          </article>
+        </section>
+
         <div className="flex flex-col h-screen overflow-hidden">
-          <DashNavBar props={props} />
+          <DashNavBar props={props} handleSettings={handleProfileSettings} />
 
           <main className="flex flex-col sm:flex-row h-full w-full overflow-hidden">
             <nav className="flex flex-row sm:flex-col h-16 sm:h-full w-full sm:w-12 md:w-40 bg-white transition-all duration-300">
