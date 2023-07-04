@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
             Privacy Policy
           </h2>
           <p>
-            Your privacy is important to us. It is 1VINE Design&#39;s policy to
+            Your privacy is important to us. It is RAVENCI&#39;s policy to
             respect your privacy and comply with any applicable law and
             regulation regarding any personal information we may collect about
             you, including across our website,{" "}
@@ -424,10 +424,9 @@ const PrivacyPolicy = () => {
             information for their own purposes (known as &ldquo;data
             controllers&rdquo;) and organizations that process personal
             information on behalf of other organizations (known as &ldquo;data
-            processors&rdquo;). We, 1VINE Design, located at the address
-            provided in our Contact Us section, are a Data Controller and/or
-            Processor with respect to the personal information you provide to
-            us.{" "}
+            processors&rdquo;). We, RAVENCI, located at the address provided in
+            our Contact Us section, are a Data Controller and/or Processor with
+            respect to the personal information you provide to us.{" "}
           </p>
           <h4>Legal Bases for Processing Your Personal Information</h4>
           <p>

@@ -18,17 +18,17 @@ const TermsAndConditions = () => {
           <p>
             These Terms of Service govern your use of the website located at{" "}
             <a href="https://qrmory.com">https://qrmory.com</a> and any related
-            services provided by 1VINE Design.{" "}
+            services provided by RAVENCI.{" "}
           </p>
           <p>
             By accessing <a href="https://qrmory.com">https://qrmory.com</a>,
             you agree to abide by these Terms of Service and to comply with all
             applicable laws and regulations. If you do not agree with these
             Terms of Service, you are prohibited from using or accessing this
-            website or using any other services provided by 1VINE Design.{" "}
+            website or using any other services provided by RAVENCI.{" "}
           </p>
           <p>
-            We, 1VINE Design, reserve the right to review and amend any of these
+            We, RAVENCI, reserve the right to review and amend any of these
             Terms of Service at our sole discretion. Upon doing so, we will
             update this page. Any changes to these Terms of Service will take
             effect immediately from the date of publication.{" "}
@@ -58,7 +58,7 @@ const TermsAndConditions = () => {
             <li>
               knowingly or negligently use this website or any of its associated
               services in a way that abuses or disrupts our networks or any
-              other service 1VINE Design provides;
+              other service RAVENCI provides;
             </li>
             <li>
               use this website or its associated services to transmit or publish
@@ -86,16 +86,16 @@ const TermsAndConditions = () => {
           <h3>Intellectual Property</h3>
           <p>
             The intellectual property in the materials contained in this website
-            are owned by or licensed to 1VINE Design and are protected by
-            applicable copyright and trademark law. We grant our users
-            permission to download one copy of the materials for personal,
-            non-commercial transitory use.{" "}
+            are owned by or licensed to RAVENCI and are protected by applicable
+            copyright and trademark law. We grant our users permission to
+            download one copy of the materials for personal, non-commercial
+            transitory use.{" "}
           </p>
           <p>
             This constitutes the grant of a license, not a transfer of title.
             This license shall automatically terminate if you violate any of
             these restrictions or the Terms of Service, and may be terminated by
-            1VINE Design at any time.{" "}
+            RAVENCI at any time.{" "}
           </p>
           <h3>User-Generated Content</h3>
           <p>
@@ -128,7 +128,7 @@ const TermsAndConditions = () => {
           <h3>Liability</h3>
           <p>
             Our website and the materials on our website are provided on an 'as
-            is' basis. To the extent permitted by law, 1VINE Design makes no
+            is' basis. To the extent permitted by law, RAVENCI makes no
             warranties, expressed or implied, and hereby disclaims and negates
             all other warranties including, without limitation, implied
             warranties or conditions of merchantability, fitness for a
@@ -136,10 +136,10 @@ const TermsAndConditions = () => {
             other violation of rights.{" "}
           </p>
           <p>
-            In no event shall 1VINE Design or its suppliers be liable for any
+            In no event shall RAVENCI or its suppliers be liable for any
             consequential loss suffered or incurred by you or any third party
             arising from the use or inability to use this website or the
-            materials on this website, even if 1VINE Design or an authorized
+            materials on this website, even if RAVENCI or an authorized
             representative has been notified, orally or in writing, of the
             possibility of such damage.{" "}
           </p>
@@ -160,19 +160,19 @@ const TermsAndConditions = () => {
           <h3>Accuracy of Materials</h3>
           <p>
             The materials appearing on our website are not comprehensive and are
-            for general information purposes only. 1VINE Design does not warrant
-            or make any representations concerning the accuracy, likely results,
-            or reliability of the use of the materials on this website, or
+            for general information purposes only. RAVENCI does not warrant or
+            make any representations concerning the accuracy, likely results, or
+            reliability of the use of the materials on this website, or
             otherwise relating to such materials or on any resources linked to
             this website.{" "}
           </p>
           <h3>Links</h3>
           <p>
-            1VINE Design has not reviewed all of the sites linked to its website
-            and is not responsible for the contents of any such linked site. The
+            RAVENCI has not reviewed all of the sites linked to its website and
+            is not responsible for the contents of any such linked site. The
             inclusion of any link does not imply endorsement, approval, or
-            control by 1VINE Design of the site. Use of any such linked site is
-            at your own risk and we strongly advise you make your own
+            control by RAVENCI of the site. Use of any such linked site is at
+            your own risk and we strongly advise you make your own
             investigations with respect to the suitability of those sites.{" "}
           </p>
           <h3>Right to Terminate</h3>
