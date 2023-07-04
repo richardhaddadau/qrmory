@@ -1,0 +1,206 @@
+{
+  "hash": "1e04e2fb",
+  "browserHash": "8ee6aea7",
+  "optimized": {
+    "react/jsx-runtime": {
+      "src": "../../node_modules/react/jsx-runtime.js",
+      "file": "react_jsx-runtime.js",
+      "fileHash": "c51f85b2",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "47d3ff5c",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "a039c77f",
+      "needsInterop": true
+    },
+    "@mui/icons-material/Delete": {
+      "src": "../../node_modules/@mui/icons-material/Delete.js",
+      "file": "@mui_icons-material_Delete.js",
+      "fileHash": "1c751fe6",
+      "needsInterop": true
+    },
+    "@mui/icons-material/MoreVert": {
+      "src": "../../node_modules/@mui/icons-material/MoreVert.js",
+      "file": "@mui_icons-material_MoreVert.js",
+      "fileHash": "f530028f",
+      "needsInterop": true
+    },
+    "@mui/icons-material/Star": {
+      "src": "../../node_modules/@mui/icons-material/Star.js",
+      "file": "@mui_icons-material_Star.js",
+      "fileHash": "488fa41f",
+      "needsInterop": true
+    },
+    "@mui/icons-material/StarOutline": {
+      "src": "../../node_modules/@mui/icons-material/StarOutline.js",
+      "file": "@mui_icons-material_StarOutline.js",
+      "fileHash": "59af2074",
+      "needsInterop": true
+    },
+    "@mui/material": {
+      "src": "../../node_modules/@mui/material/index.js",
+      "file": "@mui_material.js",
+      "fileHash": "8770a8fa",
+      "needsInterop": false
+    },
+    "@mui/material/Button": {
+      "src": "../../node_modules/@mui/material/Button/index.js",
+      "file": "@mui_material_Button.js",
+      "fileHash": "d1844952",
+      "needsInterop": false
+    },
+    "@mui/material/CircularProgress": {
+      "src": "../../node_modules/@mui/material/CircularProgress/index.js",
+      "file": "@mui_material_CircularProgress.js",
+      "fileHash": "0e3a0c9d",
+      "needsInterop": false
+    },
+    "@mui/material/Dialog": {
+      "src": "../../node_modules/@mui/material/Dialog/index.js",
+      "file": "@mui_material_Dialog.js",
+      "fileHash": "9e35505d",
+      "needsInterop": false
+    },
+    "@mui/material/DialogActions": {
+      "src": "../../node_modules/@mui/material/DialogActions/index.js",
+      "file": "@mui_material_DialogActions.js",
+      "fileHash": "1d403eac",
+      "needsInterop": false
+    },
+    "@mui/material/DialogContent": {
+      "src": "../../node_modules/@mui/material/DialogContent/index.js",
+      "file": "@mui_material_DialogContent.js",
+      "fileHash": "920eedbc",
+      "needsInterop": false
+    },
+    "@mui/material/DialogContentText": {
+      "src": "../../node_modules/@mui/material/DialogContentText/index.js",
+      "file": "@mui_material_DialogContentText.js",
+      "fileHash": "1cc7635e",
+      "needsInterop": false
+    },
+    "@mui/material/DialogTitle": {
+      "src": "../../node_modules/@mui/material/DialogTitle/index.js",
+      "file": "@mui_material_DialogTitle.js",
+      "fileHash": "b1023644",
+      "needsInterop": false
+    },
+    "d3-svg-to-png": {
+      "src": "../../node_modules/d3-svg-to-png/index.js",
+      "file": "d3-svg-to-png.js",
+      "fileHash": "cdb6bdf9",
+      "needsInterop": true
+    },
+    "qrcode.react": {
+      "src": "../../node_modules/qrcode.react/lib/esm/index.js",
+      "file": "qrcode__react.js",
+      "fileHash": "d4122df6",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "dd14cae4",
+      "needsInterop": true
+    },
+    "react-ga": {
+      "src": "../../node_modules/react-ga/dist/esm/index.js",
+      "file": "react-ga.js",
+      "fileHash": "125eff54",
+      "needsInterop": false
+    },
+    "react-helmet-async": {
+      "src": "../../node_modules/react-helmet-async/lib/index.module.js",
+      "file": "react-helmet-async.js",
+      "fileHash": "b9b247ac",
+      "needsInterop": false
+    },
+    "react-icons/all": {
+      "src": "../../node_modules/react-icons/all.js",
+      "file": "react-icons_all.js",
+      "fileHash": "27ef49aa",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "c1d0f011",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-VBKVD6WO": {
+      "file": "chunk-VBKVD6WO.js"
+    },
+    "chunk-5ISJHIGK": {
+      "file": "chunk-5ISJHIGK.js"
+    },
+    "chunk-TOJYYLZZ": {
+      "file": "chunk-TOJYYLZZ.js"
+    },
+    "chunk-TZVNWAJT": {
+      "file": "chunk-TZVNWAJT.js"
+    },
+    "chunk-6GBXB7EI": {
+      "file": "chunk-6GBXB7EI.js"
+    },
+    "chunk-TZH3GOI6": {
+      "file": "chunk-TZH3GOI6.js"
+    },
+    "chunk-EHQSM4BN": {
+      "file": "chunk-EHQSM4BN.js"
+    },
+    "chunk-I4J6BLCN": {
+      "file": "chunk-I4J6BLCN.js"
+    },
+    "chunk-44WQRGY6": {
+      "file": "chunk-44WQRGY6.js"
+    },
+    "chunk-MDIOT67E": {
+      "file": "chunk-MDIOT67E.js"
+    },
+    "chunk-ELPWGSOB": {
+      "file": "chunk-ELPWGSOB.js"
+    },
+    "chunk-TNRAA3VO": {
+      "file": "chunk-TNRAA3VO.js"
+    },
+    "chunk-OF5HYJW5": {
+      "file": "chunk-OF5HYJW5.js"
+    },
+    "chunk-7ZQS6O2T": {
+      "file": "chunk-7ZQS6O2T.js"
+    },
+    "chunk-AGAWZJSZ": {
+      "file": "chunk-AGAWZJSZ.js"
+    },
+    "chunk-DOBYGCRF": {
+      "file": "chunk-DOBYGCRF.js"
+    },
+    "chunk-NTSEXPRE": {
+      "file": "chunk-NTSEXPRE.js"
+    },
+    "chunk-HASOQXXL": {
+      "file": "chunk-HASOQXXL.js"
+    },
+    "chunk-OMDJTQ4B": {
+      "file": "chunk-OMDJTQ4B.js"
+    },
+    "chunk-CSWLMPXF": {
+      "file": "chunk-CSWLMPXF.js"
+    },
+    "chunk-RZWRR4P6": {
+      "file": "chunk-RZWRR4P6.js"
+    },
+    "chunk-J43GMYXM": {
+      "file": "chunk-J43GMYXM.js"
+    }
+  }
+}
