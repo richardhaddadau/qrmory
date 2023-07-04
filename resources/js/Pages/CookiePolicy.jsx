@@ -18,8 +18,8 @@ const CookiePolicy = () => {
           <p>
             We use cookies to help improve your experience of our website at{" "}
             <a href="https://qrmory.com">https://qrmory.com</a>. This cookie
-            policy is part of 1VINE Design&#39;s privacy policy. It covers the
-            use of cookies between your device and our site.{" "}
+            policy is part of RAVENCI&#39;s privacy policy. It covers the use of
+            cookies between your device and our site.{" "}
           </p>
           <p>
             We also provide basic information on third-party services we may
