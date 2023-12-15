@@ -32,7 +32,7 @@ const QRCard = ({
   };
 
   const loadEdit = () => {
-    // TODO: Load card data
+    // TODO: Load card qr-types
     setEditLoading(true);
     setOpenEdit(true);
 
@@ -119,7 +119,7 @@ const QRCard = ({
             </div>
           ) : (
             <div className="flex flex-col w-full text-left">
-              {/* TODO: Load card data */}
+              {/* TODO: Load card qr-types */}
               <input
                 type="text"
                 value="Sample"

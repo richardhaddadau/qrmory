@@ -95,7 +95,7 @@ const CreateACode = (props) => {
     if (qrSelectors.length > 0) {
       for (const selector of qrSelectors) {
         selector.addEventListener("click", () => {
-          const selectorIndex = selector.getAttribute("data-selector");
+          const selectorIndex = selector.getAttribute("qr-types-selector");
 
           setTextValue("");
 

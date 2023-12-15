@@ -17,9 +17,9 @@ class CompressIt {
     // const currentShortLinksArray = [];
     //
     // // Feed arrays with current links available
-    // currentLinks["data"].map((item) => {
-    //     currentLinksArray.push(item["data"]);
-    //     currentShortLinksArray.push(item["data"]["short_url"]);
+    // currentLinks["qr-types"].map((item) => {
+    //     currentLinksArray.push(item["qr-types"]);
+    //     currentShortLinksArray.push(item["qr-types"]["short_url"]);
     // });
     //
     // currentShortLinksArray.includes("xxx");
@@ -52,7 +52,7 @@ class CompressIt {
     if (compressedSite.length > urlLength) {
       optimisedCompressedSite = optimisedCompressedSite.substring(
         compressedSite.length - urlLength,
-        compressedSite.length
+        compressedSite.length,
       );
     } else if (compressedSite.length < urlLength) {
       // Analytics Point: should keep record of how many document references fell under the urlLength

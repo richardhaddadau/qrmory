@@ -20,9 +20,9 @@ const MyCodes = (props) => {
       setMyCodesData(props.data);
       setLoading(false);
 
-      // TODO: Check if data has changed and sync
+      // TODO: Check if qr-types has changed and sync
     } else {
-      // TODO: Load codes data
+      // TODO: Load codes qr-types
       dummyData = [
         ["First Code", "Audio", "01 March, 2022"],
         ["Second Code", "Twitter", "17 September, 2022"],
