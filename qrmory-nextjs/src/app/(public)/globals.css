@@ -92,12 +92,12 @@ input {
   transition-timing-function: ease, ease !important;
 }
 
-.qr-selector.active {
-  background-color: theme('colors.qrmory-purple-800') !important;
-  color: white !important;
+/*.qr-selector.active {*/
+/*  background-color: theme('colors.qrmory-purple-800') !important;*/
+/*  color: white !important;*/
 
-  box-shadow: 0 12px 20px -5px theme('colors.qrmory-purple-600');
-}
+/*  box-shadow: 0 12px 20px -5px theme('colors.qrmory-purple-600');*/
+/*}*/
 
 .qr-selector.active #selector-descriptor {
   display: none;

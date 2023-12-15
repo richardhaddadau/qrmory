@@ -1,26 +1,28 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { QRCodeSVG } from "qrcode.react";
+import { useEffect, useState } from "react";
 import d3ToPng from "d3-svg-to-png";
 
-import { DownloadSVG } from "../../../resources/js/Helpers/DownloadQR";
-import WebsiteQR from "../../../resources/js/Components/Controls/WebsiteQR";
-import FacebookQR from "../../../resources/js/Components/Controls/FacebookQR";
-import InstagramQR from "../../../resources/js/Components/Controls/InstagramQR";
-import TwitterQR from "../../../resources/js/Components/Controls/TwitterQR";
-import YoutubeQR from "../../../resources/js/Components/Controls/YoutubeQR";
-import TextQR from "../../../resources/js/Components/Controls/TextQR";
+import { DownloadSVG } from "@/helpers/DownloadQR";
+import { useQRCode } from "next-qrcode";
+import QRWebsites from "@/controls/QRWebsites";
+import QRFacebook from "@/controls/QRFacebook";
+import QRInstagram from "@/controls/QRInstagram";
+import QRTwitter from "@/controls/QRTwitter";
+import QRYoutube from "@/controls/QRYoutube";
+import QRText from "@/controls/QRText";
 
 const QRCreator = () => {
+  // Early States
   const [qrValue, setQRValue] = useState("Welcome to QRmory!");
   const [newQR, setNewQR] = useState(true);
 
   const [textValue, setTextValue] = useState("");
-  const [qrControl, setQRControl] = useState(null);
 
   const [qrTitle, setQRTitle] = useState("Made with QRmory!");
   const [qrChanged, setQRChanged] = useState(true);
+
+  const [activeSelector, setActiveSelector] = useState("website");
 
   // Data
   const suggestedTitles = [
@@ -37,7 +39,7 @@ const QRCreator = () => {
     website: [
       "Website",
       "Link to a page or site",
-      <WebsiteQR
+      <QRWebsites
         setText={setTextValue}
         setChanged={setQRChanged}
         setNewQR={setNewQR}
@@ -46,7 +48,7 @@ const QRCreator = () => {
     facebook: [
       "Facebook",
       "Facebook page/group",
-      <FacebookQR
+      <QRFacebook
         setText={setTextValue}
         setChanged={setQRChanged}
         setNewQR={setNewQR}
@@ -55,7 +57,7 @@ const QRCreator = () => {
     instagram: [
       "Instagram",
       "Instagram account",
-      <InstagramQR
+      <QRInstagram
         setText={setTextValue}
         setChanged={setQRChanged}
         setNewQR={setNewQR}
@@ -64,7 +66,7 @@ const QRCreator = () => {
     twitter: [
       "Twitter",
       "Twitter account",
-      <TwitterQR
+      <QRTwitter
         setText={setTextValue}
         setChanged={setQRChanged}
         setNewQR={setNewQR}
@@ -73,7 +75,7 @@ const QRCreator = () => {
     youTube: [
       "YouTube",
       "YouTube video",
-      <YoutubeQR
+      <QRYoutube
         setText={setTextValue}
         setChanged={setQRChanged}
         setNewQR={setNewQR}
@@ -82,12 +84,12 @@ const QRCreator = () => {
     // email: [
     //     "Email",
     //     "Preset an email",
-    //     <EmailQR setText={setTextValue}  setChanged={setQRChanged} setNewQR={setNewQR} />,
+    //     <QREmail setText={setTextValue}  setChanged={setQRChanged} setNewQR={setNewQR} />,
     // ],
     // socialMedia: [
     //     "Social Media",
     //     "Share your profiles",
-    //     <SocialMediaQR setText={setTextValue}  setChanged={setQRChanged} setNewQR={setNewQR} />,
+    //     <QRSocialMedia setText={setTextValue}  setChanged={setQRChanged} setNewQR={setNewQR} />,
     // ],
     // eBusinessCard: ["E-Biz Card", "The modern business card"],
     // poll: ["Poll", "Run a quick poll"],
@@ -99,17 +101,17 @@ const QRCreator = () => {
     // phone: [
     //     "Phone",
     //     "Set up an easy call",
-    //     <PhoneQR setText={setTextValue}  setChanged={setQRChanged} setNewQR={setNewQR} />,
+    //     <QRPhone setText={setTextValue}  setChanged={setQRChanged} setNewQR={setNewQR} />,
     // ],
     // sms: [
     //     "SMS",
     //     "Preset an SMS",
-    //     <SmsQR setText={setTextValue}  setChanged={setQRChanged} setNewQR={setNewQR} />,
+    //     <QRSms setText={setTextValue}  setChanged={setQRChanged} setNewQR={setNewQR} />,
     // ],
     text: [
       "Text",
       "Display a text message",
-      <TextQR
+      <QRText
         setText={setTextValue}
         setChanged={setQRChanged}
         setNewQR={setNewQR}
@@ -121,36 +123,15 @@ const QRCreator = () => {
     // ethereum: ["Ethereum", "Quick Ethereum payments"],
   };
 
+  // Late States
+  const [qrControl, setQRControl] = useState(qrTypes.website[2]);
+  const [qrSVG, setQRSVG] = useState(null);
+
+  // QR Element
+  const { SVG } = useQRCode();
+
   useEffect(() => {
-    const qrSelectors = document.querySelectorAll(".qr-selector");
-
-    for (const item of qrSelectors) {
-      item.classList.remove("active");
-    }
-
-    qrSelectors[0].classList.add("active");
-
-    setQRControl(qrTypes["website"][2]);
-
-    if (qrSelectors.length > 0) {
-      for (const selector of qrSelectors) {
-        selector.addEventListener("click", () => {
-          const selectorIndex = selector.getAttribute("qr-types-selector");
-
-          setTextValue("");
-
-          for (const item of qrSelectors) {
-            item.classList.remove("active");
-          }
-
-          selector.classList.add("active");
-
-          setQRControl(qrTypes[selectorIndex][2]);
-          setTextValue("");
-          setQRChanged(true);
-        });
-      }
-    }
+    setQRSVG(document.querySelector("#final-qr.div.svg"));
   }, []);
 
   return (
@@ -164,9 +145,19 @@ const QRCreator = () => {
             {Object.keys(qrTypes).map((key, index) => {
               return (
                 <div
-                  className="py-2 px-5 cursor-pointer flex justify-center items-center m-1 rounded border bg-white border-qrmory-purple-500 hover:border-qrmory-purple-400 text-sm hover:bg-qrmory-purple-400 hover:text-white qr-selector transition-all duration-300"
+                  className={`${
+                    activeSelector === key
+                      ? "bg-qrmory-purple-800 text-white"
+                      : "bg-white hover:bg-qrmory-purple-400 border-qrmory-purple-500 hover:border-qrmory-purple-400 hover:text-white"
+                  } qr-selector cursor-pointer m-1 py-2 px-5 flex justify-center items-center rounded border text-sm transition-all duration-300`}
                   key={qrTypes[key]}
                   data-selector={key}
+                  onClick={() => {
+                    setTextValue("");
+                    setActiveSelector(key);
+                    setQRControl(qrTypes[key][2]);
+                    setQRChanged(true);
+                  }}
                 >
                   {qrTypes[key][0]}
                 </div>
@@ -174,23 +165,6 @@ const QRCreator = () => {
             })}
 
             <p className="ml-2 inline text-black italic">more coming soon</p>
-
-            {/*<div*/}
-            {/*    className="self-start cursor-pointer py-2 m-1"*/}
-            {/*    onClick={() =>*/}
-            {/*        setQrOptionsOpen(!qrOptionsOpen)*/}
-            {/*    }*/}
-            {/*>*/}
-            {/*    <FaGripVertical*/}
-            {/*        color="black"*/}
-            {/*        size={24}*/}
-            {/*        className="inline"*/}
-            {/*    />*/}
-            {/*    <p className="ml-2 inline text-black">*/}
-            {/*        {qrOptionsOpen ? "less" : "more"}{" "}*/}
-            {/*        options*/}
-            {/*    </p>*/}
-            {/*</div>*/}
           </div>
           <div className="mx-auto flex flex-col grow justify-center w-full text-left">
             <label className="control-label">
@@ -240,14 +214,18 @@ const QRCreator = () => {
             </h5>
           </div>
 
-          <div className="my-16 mx-auto text-gray-600 dark:text-gray-600 text-sm">
-            <QRCodeSVG
-              id="final-qr"
-              renderAs="svg"
-              value={qrValue}
-              fgColor={qrChanged ? "#78716c" : "#000000"}
-              size={180}
-              level="M"
+          <div
+            id={`final-qr`}
+            className="my-16 mx-auto text-gray-600 dark:text-gray-600 text-sm"
+          >
+            <SVG
+              text={qrValue}
+              options={{
+                errorCorrectionLevel: "M",
+                color: { dark: qrChanged ? "#78716c" : "#000000" },
+                width: 180,
+                margin: 1,
+              }}
             />
           </div>
           <button
@@ -262,13 +240,16 @@ const QRCreator = () => {
             }
             id="download-button"
             onClick={() => {
-              const svgData = document.querySelector("#final-qr").outerHTML;
+              const svgData = document.querySelector("#final-qr div svg");
+
+              console.log(svgData);
               DownloadSVG(svgData, qrTitle);
             }}
             disabled={qrChanged}
           >
             Download SVG
           </button>
+
           <div className="my-2 flex flex-row flex-nowrap gap-2 items-center w-full">
             <button
               className={
