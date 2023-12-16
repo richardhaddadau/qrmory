@@ -2,12 +2,12 @@ import FullLogo from "../../../resources/js/Components/FullLogo";
 
 const MainFooter = () => {
   // Constants
-  const quickLinks = {
+  const exploreLinks = {
     // about: ["About", "/about"],
-    features: ["More About QR Codes", "/more-about-qr-codes"],
+    // aboutQRCodes: ["More About QR Codes", "/more-about-qr-codes"],
     // features: ["Features", "/features"],
-    // pricing: ["Pricing", "/pricing"],
-    // blog: ["Blog", "/blog"],
+    pricing: ["Pricing", "/pricing"],
+    blog: ["Blog", "/blog"],
   };
 
   const supportLinks = {
@@ -57,19 +57,19 @@ const MainFooter = () => {
         </article>
 
         <article className="md:w-1/5 w-full">
-          {/*<h4 className="mb-4 font-bold text-xl">Quick Links</h4>*/}
-          {/*<ul>*/}
-          {/*  {Object.keys(quickLinks).map((key, index) => (*/}
-          {/*    <li className="my-2" key={key}>*/}
-          {/*      <a*/}
-          {/*        className="py-0.5 px-1 text-base text-qrmory-purple-400 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-500"*/}
-          {/*        href={quickLinks[key][1]}*/}
-          {/*      >*/}
-          {/*        {quickLinks[key][0]}*/}
-          {/*      </a>*/}
-          {/*    </li>*/}
-          {/*  ))}*/}
-          {/*</ul>*/}
+          <h4 className="mb-4 font-bold text-xl">Explore</h4>
+          <ul>
+            {Object.keys(exploreLinks).map((key, index) => (
+              <li className="my-2" key={key}>
+                <a
+                  className="py-0.5 px-1 text-base text-qrmory-purple-400 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-500"
+                  href={exploreLinks[key][1]}
+                >
+                  {exploreLinks[key][0]}
+                </a>
+              </li>
+            ))}
+          </ul>
         </article>
 
         {/*<article className="md:w-1/5 w-full">*/}
@@ -104,8 +104,7 @@ const MainFooter = () => {
           {/*  ))}*/}
           {/*</ul>*/}
 
-          {/* Important Links */}
-          <h4 className="mb-4 font-bold text-xl">Important Information</h4>
+          <h4 className="mb-4 font-bold text-xl">Legal Information</h4>
           <ul>
             {Object.keys(importantLinks).map((key, index) => (
               <li className="my-2" key={key}>
