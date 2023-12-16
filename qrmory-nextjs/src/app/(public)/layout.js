@@ -1,4 +1,5 @@
 import "./globals.css";
+import MainFooter from "@/sections/MainFooter";
 
 export const metadata = {
   title: "QRmory - Generate an arsenal of QR Codes",
@@ -8,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <MainFooter />
+      </body>
     </html>
   );
 }

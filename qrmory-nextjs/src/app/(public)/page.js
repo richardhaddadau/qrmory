@@ -3,6 +3,7 @@ import HomeHero from "@/sections/HomeHero";
 import MainNavigation from "@/sections/MainNavigation";
 import HomeInfo from "@/sections/HomeInfo";
 import QRCreator from "@/components/QRCreator";
+import MainFooter from "@/sections/MainFooter";
 
 export default function Home() {
   return (

@@ -9,8 +9,8 @@ const MainNavigation = ({
 }) => {
   return (
     <nav
-      className={`${
-        className + absolute ? "absolute" : "relative"
+      className={`${className} ${
+        absolute ? "absolute" : "relative"
       } py-4 px-8 top-0 flex flex-col items-center justify-between w-full`}
     >
       <Link href="/">

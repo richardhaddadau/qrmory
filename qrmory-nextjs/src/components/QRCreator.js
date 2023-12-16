@@ -263,7 +263,9 @@ const QRCreator = () => {
               }
               id="download-button"
               onClick={() => {
-                d3ToPng("#final-qr", qrTitle, {
+                const svgData = document.querySelector("#final-qr div svg");
+
+                d3ToPng(svgData, qrTitle, {
                   format: "png",
                 }).then((r) => console.log(r));
               }}
@@ -284,7 +286,9 @@ const QRCreator = () => {
               }
               id="download-button"
               onClick={() => {
-                d3ToPng("#final-qr", qrTitle, {
+                const svgData = document.querySelector("#final-qr div svg");
+
+                d3ToPng(svgData, qrTitle, {
                   format: "jpg",
                 }).then((r) => console.log(r));
               }}
