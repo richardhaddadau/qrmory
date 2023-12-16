@@ -1,6 +1,6 @@
 const HomeInfo = () => {
   return (
-    <section className="py-24 px-6 lg:px-12 w-full bg-stone-100 text-qrmory-purple-800">
+    <section className="py-14 px-6 lg:px-12 bg-stone-100 rounded-lg text-qrmory-purple-800">
       <h3 className="text-xl uppercase font-bold">What is a QR Code anyway?</h3>
       <h2 className="-mt-1 font-header text-4.5xl">and how does it work</h2>
 
