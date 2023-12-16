@@ -2,13 +2,13 @@ import MainNavigation from "@/sections/MainNavigation";
 
 const TermsAndConditions = () => {
   return (
-    <main className="flex flex-col w-full max-w-7xl policy-document">
+    <main className="flex flex-col w-full policy-document">
       <MainNavigation
         className="bg-qrmory-purple-800 text-white"
         absolute={false}
       />
 
-      <section className={`p-8`}>
+      <section className={`p-8 mx-auto max-w-7xl`}>
         <h2 className="mb-4 font-header text-4.5xl text-qrmory-purple-800">
           Terms of Service
         </h2>
