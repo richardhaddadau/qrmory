@@ -10,6 +10,7 @@ export default authMiddleware({
     "/privacy-policy",
     "/terms-and-conditions",
     "/cookie-policy",
+    "/studio",
   ],
 
   afterAuth(auth, req, res, next) {
