@@ -1,4 +1,4 @@
-import FullLogo from "../../../resources/js/Components/FullLogo";
+import FullLogo from "@/components/FullLogo";
 
 const MainFooter = () => {
   // Constants
