@@ -7,7 +7,7 @@ const MainFooter = () => {
     // aboutQRCodes: ["More About QR Codes", "/more-about-qr-codes"],
     // features: ["Features", "/features"],
     pricing: ["Pricing", "/pricing"],
-    blog: ["Blog", "/blog"],
+    // blog: ["Blog", "/blog"],
   };
 
   const supportLinks = {
@@ -56,21 +56,21 @@ const MainFooter = () => {
           {/*</div>*/}
         </article>
 
-        <article className="md:w-1/5 w-full">
-          <h4 className="mb-4 font-bold text-xl">Explore</h4>
-          <ul>
-            {Object.keys(exploreLinks).map((key, index) => (
-              <li className="my-2" key={key}>
-                <a
-                  className="py-0.5 px-1 text-base text-qrmory-purple-400 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-500"
-                  href={exploreLinks[key][1]}
-                >
-                  {exploreLinks[key][0]}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </article>
+        {/*<article className="md:w-1/5 w-full">*/}
+        {/*  <h4 className="mb-4 font-bold text-xl">Explore</h4>*/}
+        {/*  <ul>*/}
+        {/*    {Object.keys(exploreLinks).map((key, index) => (*/}
+        {/*      <li className="my-2" key={key}>*/}
+        {/*        <a*/}
+        {/*          className="py-0.5 px-1 text-base text-qrmory-purple-400 hover:text-white hover:bg-qrmory-purple-400 transition-all duration-500"*/}
+        {/*          href={exploreLinks[key][1]}*/}
+        {/*        >*/}
+        {/*          {exploreLinks[key][0]}*/}
+        {/*        </a>*/}
+        {/*      </li>*/}
+        {/*    ))}*/}
+        {/*  </ul>*/}
+        {/*</article>*/}
 
         {/*<article className="md:w-1/5 w-full">*/}
         {/*  <h4 className="mb-4 font-bold text-xl">Important Information</h4>*/}
