@@ -1,4 +1,4 @@
-import { SignIn } from "@clerk/nextjs";
+import SignIn from "@/components/SignIn";
 
 export const metadata = {
   title: "Log in | QRmory",
@@ -6,9 +6,5 @@ export const metadata = {
 };
 
 export default function SignInPage() {
-  return (
-    <main>
-      <SignIn />
-    </main>
-  );
+  return <SignIn />;
 }
